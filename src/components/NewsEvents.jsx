@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
+import { API_BASE_URL } from '../config';
 
 const events = [
   {
@@ -69,7 +70,7 @@ const NewsEvents = () => {
                 <div className="bg-gray-100 rounded-xl overflow-hidden">
                   <div className="relative w-full pt-[60%] sm:pt-[50%]">
                     <img
-                      src={`http://localhost:5000${featuredNews.image}`}
+                      src={`${API_BASE_URL}${featuredNews.image}`}
                       alt={featuredNews.title}
                       className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
@@ -97,7 +98,7 @@ const NewsEvents = () => {
                   >
                     <div className="relative w-16 sm:w-20 h-14 sm:h-16 bg-gray-200 rounded overflow-hidden flex-shrink-0">
                       <img
-                        src={`http://localhost:5000${item.image}`}
+                        src={`${API_BASE_URL}${item.image}`}
                         alt={item.title}
                         className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       />

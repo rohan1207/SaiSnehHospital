@@ -28,7 +28,7 @@ const AddNewsForm = ({ onSuccess, onFormClose, initialData }) => {
       });
       setContent(initialData.content || '');
       if (initialData.image) {
-        setImagePreview(`http://localhost:5000${initialData.image}`);
+        setImagePreview(`${API_BASE_URL}${initialData.image}`);
       }
     } else {
       // Reset form for new entry

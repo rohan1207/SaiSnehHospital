@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from 'react';
+import { API_BASE_URL } from '../config';
 import { useParams, Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
 import Navbar from "../components/Navbar";
@@ -136,7 +137,7 @@ const NewsPostTemplate = () => {
           {/* Image Container */}
           <div className="rounded-2xl overflow-hidden shadow-xl mb-8 aspect-[16/9] relative">
             <img
-              src={`http://localhost:5000${post.image}`}
+              src={`${API_BASE_URL}${post.image}`}
               alt={post.title}
               className="w-full h-full object-cover object-center"
             />

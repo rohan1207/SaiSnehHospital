@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_BASE_URL } from '../config';
 import { MessageCircle, X, Send } from "lucide-react";
 
 const ChatBot = ({ isOpen, onClose }) => {
@@ -22,7 +23,7 @@ const ChatBot = ({ isOpen, onClose }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/chat', {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

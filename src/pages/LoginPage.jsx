@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from '../config';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const LoginPage = () => {
 
       try {
         // Try to validate the token
-        const response = await axios.get("http://localhost:5000/api/auth/me", {
+        const response = await axios.get(`${API_BASE_URL}/api/auth/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -77,7 +78,7 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/admin/login",
+        `${API_BASE_URL}/api/auth/admin/login`,
         adminData
       );
       if (response.data.success) {
@@ -109,7 +110,7 @@ const LoginPage = () => {
       });
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/patient/login",
+        `${API_BASE_URL}/api/auth/patient/login`,
         {
           phone: patientData.phone.trim(),
           password: patientData.password,
@@ -165,7 +166,7 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/patient/register",
+        `${API_BASE_URL}/api/auth/patient/register`,
         signupData
       );
       if (response.data.success) {

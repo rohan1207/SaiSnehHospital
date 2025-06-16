@@ -29,7 +29,7 @@ function AdminDashboard() {
           return;
         }
 
-        const response = await axios.get("http://localhost:5000/api/auth/me", {
+        const response = await axios.get(`${API_BASE_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -178,7 +178,7 @@ const AppointmentsSection = () => {
     const fetchAppointments = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/appointments");
+        const response = await axios.get(`${API_BASE_URL}/api/appointments`);
         setAppointments(response.data);
         setError(null);
       } catch (err) {
@@ -210,7 +210,7 @@ const AppointmentsSection = () => {
     try {
       // **TODO**: Replace with actual API call
       // const token = localStorage.getItem("token");
-      // await axios.put(`http://localhost:5000/api/appointments/${appointmentId}/status`, 
+
       //   { status: 'completed' },
       //   { headers: { Authorization: `Bearer ${token}` } }
       // );
@@ -520,7 +520,7 @@ const ManageNewsSection = () => {
           {news.map((article) => (
             <div key={article._id} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
               <img
-                src={`http://localhost:5000${article.image}`}
+                src={`${API_BASE_URL}${article.image}`}
                 alt={article.title}
                 className="w-full h-48 object-cover"
                 onError={handleImageError}
@@ -561,7 +561,7 @@ const ManageAccessSection = () => {
           throw new Error('No token found, please log in.');
         }
 
-        const response = await axios.get('http://localhost:5000/api/auth/admins', {
+        const response = await axios.get(`${API_BASE_URL}/api/auth/admins`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

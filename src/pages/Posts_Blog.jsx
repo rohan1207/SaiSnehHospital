@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API_BASE_URL } from '../config';
 import { Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
 import Navbar from "../components/Navbar";
@@ -80,7 +81,7 @@ const Posts_Blog = () => {
             >
               <Link to={`/news/${post._id}`}>
                 <img
-                  src={`http://localhost:5000${post.image}`}
+                  src={`${API_BASE_URL}${post.image}`}
                   alt={post.title}
                   className="w-full h-48 object-cover"
                 />
