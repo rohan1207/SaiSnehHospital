@@ -1,0 +1,202 @@
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { HiMenuAlt3, HiX, HiPhone, HiClock } from "react-icons/hi";
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  const menuItems = [
+    { title: "Home", link: "/" },
+    { title: "About Us", link: "/about" },
+    { title: "Services", link: "/services" },
+    { title: "Doctors", link: "/doctors" },
+    { title: "Our Gallery", link: "/gallery" },
+    { title: "Blogs & Events", link: "/blog" },
+    { title: "Contact Us", link: "/contact" },
+  ];
+
+  const menuVariants = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+    closed: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.3, ease: "easeIn" },
+    },
+  };
+
+  return (
+    <>
+      {/* Main Navbar */}
+      <nav className="fixed w-full z-50 px-4 py-1 transition-all duration-300">
+        <div
+          className={`mx-auto max-w-7xl min-h-[60px] bg-white/95 backdrop-blur-md rounded-full px-4 py-2 transition-all duration-300 ${
+            scrolled ? "shadow-lg" : "shadow-md"
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link to="/">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <img
+                    src="/logo.png"
+                    alt="Hospital Logo"
+                    className="h-10 w-auto"
+                  />
+                </motion.div>
+              </Link>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden lg:block">
+              <div className="flex items-center space-x-2">
+                {menuItems.map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
+                    <Link
+                      to={item.link}
+                      className="relative px-4 py-2 text-gray-700 hover:text-[#f04e30] font-medium transition-all duration-200 rounded-full hover:bg-gray-50"
+                    >
+                      {item.title}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                  <Link to="/login">
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-block ml-2 bg-[#f04e30] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg hover:bg-[#f04e30]/90 transition-all duration-300"
+                    >
+                      Login
+                    </motion.div>
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+              </motion.button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <motion.div
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={menuVariants}
+          className={`lg:hidden fixed inset-0 bg-white/95 backdrop-blur-md z-50 ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
+          <div className="min-h-screen flex flex-col">
+            {/* Mobile Menu Header */}
+            <div className="flex items-center justify-between px-6 py-4">
+              <Link to="/">
+                <img
+                  src="/logo.png"
+                  alt="Hospital Logo"
+                  className="h-10 w-auto"
+                />
+              </Link>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsOpen(false)}
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <HiX size={24} />
+              </motion.button>
+            </div>
+
+            {/* Mobile Menu Items */}
+            <div className="flex-1 overflow-y-auto px-4 py-8">
+              <div className="space-y-2">
+                {menuItems.map((item) => (
+                  <motion.div key={item.title} whileHover={{ x: 5 }}>
+                    <Link
+                      to={item.link}
+                      className="block px-6 py-3 text-gray-700 hover:text-[#f04e30] hover:bg-[#f04e30]/5 rounded-full font-medium transition-all duration-200"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Menu Footer */}
+            <div className="px-6 py-8 space-y-3">
+              <Link to="/doctors">
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="w-full bg-[#f04e30]/10 text-[#f04e30] px-6 py-3 rounded-full font-medium transition-all duration-200 text-center mb-5"
+                >
+                  Find a Doctor
+                </motion.div>
+              </Link>
+              <Link to="/login">
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="w-full bg-[#f04e30] text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg text-center transition-all duration-200"
+                >
+                  Login
+                </motion.div>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
