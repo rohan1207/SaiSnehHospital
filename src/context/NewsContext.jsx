@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { API_BASE_URL } from '../config';
 
 const NewsContext = createContext();
 
@@ -19,7 +20,7 @@ export const NewsProvider = ({ children }) => {
     const fetchNews = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/news");
+        const response = await axios.get(`${API_BASE_URL}/api/news`);
         console.log("News data received:", response.data); // Debug log
         if (response.data.success && Array.isArray(response.data.data)) {
           setNews(response.data.data);
@@ -44,7 +45,7 @@ export const NewsProvider = ({ children }) => {
 
   const getPostById = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/news/${id}`);
+      const response = await axios.get(`${API_BASE_URL}/api/news/${id}`);
       if (response.data.success) {
         return response.data.data;
       }
@@ -58,7 +59,7 @@ export const NewsProvider = ({ children }) => {
   const getRelatedPosts = async (currentPostId, category) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/news/related?category=${category}&excludeId=${currentPostId}`
+        `${API_BASE_URL}/api/news/related?category=${category}&excludeId=${currentPostId}`
       );
       if (response.data.success) {
         return response.data.data;

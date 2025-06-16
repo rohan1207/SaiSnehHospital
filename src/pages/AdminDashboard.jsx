@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from '../config';
 import { Toaster, toast } from "react-hot-toast";
 import { RiCalendarCheckLine, RiNewspaperLine, RiShieldUserLine, RiMenuLine, RiCloseLine, RiLogoutBoxLine, RiAddLine, RiEditLine, RiDeleteBinLine, RiArrowUpSLine, RiArrowDownSLine, RiUserSettingsLine, RiUserAddLine } from "react-icons/ri";
 import Modal from "../components/Modal";
@@ -424,7 +425,7 @@ const ManageNewsSection = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/news", {
+        const response = await axios.get(`${API_BASE_URL}/api/news`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.data.success) {
@@ -454,7 +455,7 @@ const ManageNewsSection = () => {
     if (window.confirm("Are you sure you want to delete this article?")) {
       try {
         const token = localStorage.getItem("token");
-        await axios.delete(`http://localhost:5000/api/news/${newsId}`, {
+        await axios.delete(`${API_BASE_URL}/api/news/${newsId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setNews(news.filter((item) => item._id !== newsId));

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import { toast } from 'react-hot-toast';
 import { Editor } from '@tinymce/tinymce-react';
 
@@ -81,9 +82,9 @@ const AddNewsForm = ({ onSuccess, onFormClose, initialData }) => {
 
       let response;
       if (isEditing) {
-        response = await axios.put(`http://localhost:5000/api/news/${initialData._id}`, submissionData, config);
+        response = await axios.put(`${API_BASE_URL}/api/news/${initialData._id}`, submissionData, config);
       } else {
-        response = await axios.post('http://localhost:5000/api/news', submissionData, config);
+        response = await axios.post(`${API_BASE_URL}/api/news`, submissionData, config);
       }
 
       if (response.data.success) {
