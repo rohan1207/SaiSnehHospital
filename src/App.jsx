@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -64,6 +65,7 @@ function App() {
   return (
     <div className="relative">
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen bg-gray-50">
           <NewsProvider>
             <Routes>
