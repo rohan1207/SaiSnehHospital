@@ -185,8 +185,8 @@ const ServiceDetail = () => {
                   }}
                   className={`py-3 text-sm font-medium whitespace-nowrap transition-all ${
                     activeTab === tab.id
-                      ? "text-[#f84a3e]"
-                      : "text-gray-600 hover:text-[#f84a3e]"
+                      ? "text-blue-600"
+                      : "text-gray-600 hover:text-blue-600"
                   }`}
                 >
                   {tab.label}
@@ -210,12 +210,14 @@ const ServiceDetail = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/book-appointment">
-                <div className="px-8 py-4 bg-[#f84a3e] text-white rounded-lg hover:bg-[#f63827] transition-all">
-                  Book Appointment
-                </div>      
-                </Link>          <Link 
+                  {" "}
+                  <div className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
+                    Book Appointment
+                  </div>
+                </Link>{" "}
+                <Link
                   to="/contact"
-                  className="px-8 py-4 border-2 border-[#f84a3e] text-[#f84a3e] rounded-lg hover:bg-red-50 transition-all inline-block"
+                  className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-all inline-block"
                 >
                   Contact Us
                 </Link>
@@ -230,7 +232,7 @@ const ServiceDetail = () => {
                   className="absolute inset-0 w-full h-full object-cover rounded-full shadow-xl hero-service-image"
                 />
                 {/* Dotted Circle */}
-                <div className="absolute -inset-3 border-2 border-dashed border-[#f84a3e]/30 rounded-full animate-spin-slow" />
+                <div className="absolute -inset-3 border-2 border-dashed border-blue-600/30 rounded-full animate-spin-slow" />
               </div>
             </div>
           </div>
@@ -598,8 +600,8 @@ const ServiceDetail = () => {
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">
                       {tech.name}
-                    </h3>
-                    <button className="text-[#f84a3e] font-medium flex items-center gap-1 group">
+                    </h3>{" "}
+                    <button className="text-blue-600 font-medium flex items-center gap-1 group">
                       Learn more
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -667,7 +669,7 @@ const ServiceDetail = () => {
                     onClick={() => setCurrentTechIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentTechIndex
-                        ? "bg-[#f84a3e] scale-125"
+                        ? "bg-blue-600 scale-125"
                         : "bg-gray-300"
                     }`}
                   />
@@ -717,7 +719,7 @@ const ServiceDetail = () => {
                           }
                           className="w-full h-full object-cover rounded-full"
                         />
-                        <div className="absolute -bottom-2 -right-2 bg-[#f84a3e] text-white rounded-full p-2">
+                        <div className="absolute -bottom-2 -right-2 bg-blue-600 text-white rounded-full p-2">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"
@@ -751,7 +753,7 @@ const ServiceDetail = () => {
                               .name
                           }
                         </h3>
-                        <p className="text-[#f84a3e]">
+                        <p className="text-blue-600">
                           {
                             serviceData.testimonials[currentTestimonialIndex]
                               .treatment
@@ -785,13 +787,13 @@ const ServiceDetail = () => {
                 onClick={prevTestimonial}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 group hidden md:block"
               >
-                <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-[#f84a3e]" />
+                <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
               </button>
               <button
                 onClick={nextTestimonial}
                 className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 group hidden md:block"
               >
-                <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-[#f84a3e]" />
+                <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
               </button>
 
               {/* Mobile Navigation Dots */}
@@ -802,7 +804,7 @@ const ServiceDetail = () => {
                     onClick={() => setCurrentTestimonialIndex(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentTestimonialIndex
-                        ? "bg-[#f84a3e] scale-125"
+                        ? "bg-blue-600 scale-125"
                         : "bg-gray-300 hover:bg-gray-400"
                     }`}
                   ></button>
@@ -815,13 +817,13 @@ const ServiceDetail = () => {
       {/* Contact Strip */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div
                 className="w-full h-full"
                 style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F04E30' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233B82F6' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                   backgroundSize: "30px 30px",
                 }}
               ></div>
@@ -834,9 +836,10 @@ const ServiceDetail = () => {
               <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg">
                 Our medical experts are here to help. Get in touch with us for
                 any medical queries or appointment scheduling.
-              </p>              <Link
+              </p>{" "}
+              <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-red-500 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-red-600 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-blue-700 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Contact Us
                 <svg

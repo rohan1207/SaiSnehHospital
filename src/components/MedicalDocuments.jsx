@@ -9,7 +9,7 @@ const MedicalDocuments = () => {
       type: "PDF",
       date: "2025-06-10",
       category: "Blood Test",
-      url: "/medical_report1.jpg"
+      url: "/medical_report1.jpg",
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const MedicalDocuments = () => {
       type: "Image",
       date: "2025-06-08",
       category: "X-Ray",
-      url: "/medical_report2.webp"
+      url: "/medical_report2.webp",
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ const MedicalDocuments = () => {
       type: "PDF",
       date: "2025-06-05",
       category: "ECG",
-      url: "/medical_report3.jpg"
+      url: "/medical_report3.jpg",
     },
   ]);
 
@@ -41,7 +41,7 @@ const MedicalDocuments = () => {
         type: file.type.split("/")[1].toUpperCase(),
         date: new Date().toISOString().split("T")[0],
         category: "Other",
-        url: URL.createObjectURL(file)
+        url: URL.createObjectURL(file),
       };
       setDocuments([...documents, newDoc]);
     }
@@ -53,15 +53,15 @@ const MedicalDocuments = () => {
   };
 
   const handleRemoveDocument = (docId) => {
-    setDocuments(documents.filter(doc => doc.id !== docId));
+    setDocuments(documents.filter((doc) => doc.id !== docId));
   };
 
   const getCategoryColor = (category) => {
     const colors = {
       "Blood Test": "bg-red-100 text-red-600",
       "X-Ray": "bg-blue-100 text-blue-600",
-      "ECG": "bg-green-100 text-green-600",
-      "Other": "bg-gray-100 text-gray-600"
+      ECG: "bg-green-100 text-green-600",
+      Other: "bg-gray-100 text-gray-600",
     };
     return colors[category] || colors["Other"];
   };
@@ -74,7 +74,7 @@ const MedicalDocuments = () => {
         </h3>
         <button
           onClick={() => setShowUpload(true)}
-          className="flex items-center px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all duration-200 shadow-sm hover:shadow-md"
+          className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-200 shadow-sm hover:shadow-md"
         >
           <Upload className="mr-2 w-4 h-4" />
           Upload New
@@ -87,13 +87,19 @@ const MedicalDocuments = () => {
             key={doc.id}
             className="flex items-start p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all duration-200 bg-gray-50/50 hover:bg-gray-50"
           >
-            <div className="p-3 bg-orange-100 rounded-lg mr-4 flex-shrink-0">
-              <FileText className="text-orange-500 w-5 h-5" />
+            <div className="p-3 bg-blue-100 rounded-lg mr-4 flex-shrink-0">
+              <FileText className="text-blue-500 w-5 h-5" />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-medium text-gray-800 mb-2 truncate">{doc.name}</h4>
+              <h4 className="font-medium text-gray-800 mb-2 truncate">
+                {doc.name}
+              </h4>
               <div className="flex items-center gap-2 mb-3">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(doc.category)}`}>
+                <span
+                  className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(
+                    doc.category
+                  )}`}
+                >
                   {doc.category}
                 </span>
                 <span className="text-xs text-gray-500">
@@ -110,7 +116,7 @@ const MedicalDocuments = () => {
                 </button>
               </div>
             </div>
-            <button 
+            <button
               onClick={() => handleRemoveDocument(doc.id)}
               className="text-gray-400 hover:text-red-500 transition-colors duration-200 p-1 rounded-full hover:bg-red-50"
             >
@@ -124,7 +130,9 @@ const MedicalDocuments = () => {
         <div className="text-center py-12 text-gray-500">
           <FileText className="w-16 h-16 mx-auto mb-4 opacity-30" />
           <p className="text-lg mb-2">No documents uploaded yet</p>
-          <p className="text-sm">Upload your first medical document to get started</p>
+          <p className="text-sm">
+            Upload your first medical document to get started
+          </p>
         </div>
       )}
 
@@ -141,7 +149,7 @@ const MedicalDocuments = () => {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+
             <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-orange-400 transition-colors duration-200">
               <input
                 type="file"
@@ -161,7 +169,7 @@ const MedicalDocuments = () => {
                 </p>
               </label>
             </div>
-            
+
             <div className="flex justify-end gap-3 mt-6">
               <button
                 onClick={() => setShowUpload(false)}
@@ -180,9 +188,12 @@ const MedicalDocuments = () => {
           <div className="bg-white rounded-2xl max-w-4xl max-h-[90vh] w-full overflow-hidden shadow-2xl">
             <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-gray-50">
               <div>
-                <h4 className="text-lg font-semibold text-gray-800">{viewingDoc.name}</h4>
+                <h4 className="text-lg font-semibold text-gray-800">
+                  {viewingDoc.name}
+                </h4>
                 <p className="text-sm text-gray-500">
-                  {viewingDoc.category} • {new Date(viewingDoc.date).toLocaleDateString()}
+                  {viewingDoc.category} •{" "}
+                  {new Date(viewingDoc.date).toLocaleDateString()}
                 </p>
               </div>
               <button
@@ -192,18 +203,18 @@ const MedicalDocuments = () => {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            
+
             <div className="p-4 overflow-auto max-h-[calc(90vh-100px)]">
               <div className="flex justify-center">
                 <img
                   src={viewingDoc.url}
                   alt={viewingDoc.name}
                   className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
-                  style={{ maxHeight: 'calc(90vh - 200px)' }}
+                  style={{ maxHeight: "calc(90vh - 200px)" }}
                 />
               </div>
             </div>
-            
+
             <div className="p-4 border-t border-gray-200 bg-gray-50 flex justify-end gap-3">
               <button
                 onClick={() => setViewingDoc(null)}

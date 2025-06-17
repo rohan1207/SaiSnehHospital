@@ -28,15 +28,13 @@ const DoctorsKnowledge = () => {
           <div className="bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
             {/* Page Header */}
             <div className="text-center mb-12 relative">
-             
-              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-5 p-2">
+              <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-5 p-2">
                 Expert Knowledge Hub
-
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-4 rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-4 rounded-full"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Learn from our experienced doctors through their insightful videos
-                and professional advice.
+                Learn from our experienced doctors through their insightful
+                videos and professional advice.
               </p>
             </div>
 
@@ -48,7 +46,7 @@ const DoctorsKnowledge = () => {
                   className="bg-gradient-to-br from-white via-white to-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 group"
                 >
                   <div className="aspect-video relative rounded-t-2xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-indigo-600/5 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
                     <iframe
                       src={video.src}
                       width="100%"
@@ -62,11 +60,11 @@ const DoctorsKnowledge = () => {
                     ></iframe>
                   </div>
                   <div className="p-6 bg-gradient-to-br from-white to-gray-50">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {video.title}
                     </h3>
                     <p className="text-gray-600 flex items-center gap-2">
-                      <RiLightbulbFlashLine className="text-red-500" />
+                      <RiLightbulbFlashLine className="text-blue-600" />
                       {video.doctor}
                     </p>
                   </div>
@@ -75,12 +73,12 @@ const DoctorsKnowledge = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8">
+            <div className="text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
               <p className="text-gray-600 mb-6">
                 Our doctors regularly share their expertise and insights to help
                 you make informed decisions about your health.
               </p>
-              <button className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium px-8 py-3 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-sm hover:shadow group">
+              <button className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium px-8 py-3 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-sm hover:shadow group">
                 <RiPlayCircleFill className="text-xl transition-transform group-hover:rotate-12" />
                 Subscribe for Updates
               </button>

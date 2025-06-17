@@ -36,7 +36,7 @@ const FloatingActionButtons = () => {
           </a>
           <a
             href={telLink}
-            className="flex items-center justify-center w-14 h-14 bg-red-500 text-white rounded-full shadow-lg hover:bg-red-600 transition-transform transform hover:scale-110"
+            className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:from-blue-600 hover:to-blue-700 transition-transform transform hover:scale-110"
             aria-label="Emergency Call"
           >
             <FaPhoneAlt size={24} />
@@ -56,7 +56,7 @@ const FloatingActionButtons = () => {
         {/* Main toggle button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 bg-red-500 text-white rounded-full shadow-xl flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform transform hover:scale-110 active:scale-95"
+          className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-xl flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform transform hover:scale-110 active:scale-95 hover:from-blue-600 hover:to-blue-700"
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close actions menu" : "Open actions menu"}
         >

@@ -7,13 +7,13 @@ const advantages = [
     id: 1,
     image: "/advantage1.png",
     title: "Expert Medical Care",
-    description: "Access to qualified healthcare professionals"
+    description: "Access to qualified healthcare professionals",
   },
   {
     id: 2,
-    image: "/advantage2.png", 
+    image: "/advantage2.png",
     title: "Convenient Online Consultations",
-    description: "Get medical advice from the comfort of your home"
+    description: "Get medical advice from the comfort of your home",
   },
 ];
 
@@ -52,14 +52,13 @@ const AdvantagesSlider = () => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => prev === 0 ? advantages.length - 1 : prev - 1);
+    setCurrentIndex((prev) => (prev === 0 ? advantages.length - 1 : prev - 1));
   };
 
-  return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+  return (    <div className="w-full max-w-6xl mx-auto px-4 py-8 sm:py-12 bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header Section */}
       <div className="text-center mb-16">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
@@ -69,7 +68,7 @@ const AdvantagesSlider = () => {
             Sai Sneh E-Clinic?
           </span>
         </motion.h2>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
@@ -79,7 +78,7 @@ const AdvantagesSlider = () => {
 
       {/* Main Slider Container */}
       <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-        <div className="relative h-96 md:h-[500px] lg:h-[600px]">
+        <div className="relative h-64 sm:h-80 md:h-[400px] lg:h-[500px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -90,7 +89,7 @@ const AdvantagesSlider = () => {
               transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.4 },
-                scale: { duration: 0.4 }
+                scale: { duration: 0.4 },
               }}
               className="absolute inset-0 flex items-center justify-center p-8 md:p-12"
             >
@@ -98,11 +97,12 @@ const AdvantagesSlider = () => {
                 <div className="relative w-full max-w-4xl h-full">
                   <img
                     src={advantages[currentIndex].image}
-                    alt={advantages[currentIndex].title || `Advantage ${currentIndex + 1}`}
+                    alt={
+                      advantages[currentIndex].title ||
+                      `Advantage ${currentIndex + 1}`
+                    }
                     className="w-full h-full object-contain drop-shadow-2xl"
                   />
-                  
-               
                 </div>
               </div>
             </motion.div>
@@ -113,14 +113,14 @@ const AdvantagesSlider = () => {
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-gray-200"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-orange-500 transition-colors" />
+            <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-blue-500 transition-colors" />
           </button>
-          
+
           <button
             onClick={nextSlide}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group border border-gray-200"
           >
-            <ChevronRight className="w-6 h-6 text-gray-700 group-hover:text-orange-500 transition-colors" />
+            <ChevronRight className="w-6 h-6 text-gray-700 group-hover:text-blue-500 transition-colors" />
           </button>
         </div>
 
@@ -132,8 +132,8 @@ const AdvantagesSlider = () => {
               onClick={() => setCurrentIndex(index)}
               className={`transition-all duration-300 ${
                 index === currentIndex
-                  ? "w-8 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"
-                  : "w-3 h-3 bg-gray-300 hover:bg-orange-300 rounded-full"
+                  ? "w-8 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
+                  : "w-3 h-3 bg-gray-300 hover:bg-blue-300 rounded-full"
               }`}
             />
           ))}
@@ -141,28 +141,34 @@ const AdvantagesSlider = () => {
       </div>
 
       {/* Bottom Stats/Features */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
       >
         <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-white font-bold text-xl">24/7</span>
           </div>
           <h4 className="font-semibold text-gray-900 mb-2">Available 24/7</h4>
-          <p className="text-gray-600 text-sm">Round the clock medical support</p>
+          <p className="text-gray-600 text-sm">
+            Round the clock medical support
+          </p>
         </div>
-        
+
         <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
           <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-white font-bold text-xl">✓</span>
           </div>
-          <h4 className="font-semibold text-gray-900 mb-2">Certified Doctors</h4>
-          <p className="text-gray-600 text-sm">Licensed healthcare professionals</p>
+          <h4 className="font-semibold text-gray-900 mb-2">
+            Certified Doctors
+          </h4>
+          <p className="text-gray-600 text-sm">
+            Licensed healthcare professionals
+          </p>
         </div>
-        
+
         <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
           <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-white font-bold text-xl">🔒</span>

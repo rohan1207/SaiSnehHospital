@@ -101,7 +101,6 @@ const galleryData = {
       title: "24/7 nurse Available",
       category: "Facility",
     },
-   
   ],
   operations: [
     {
@@ -146,7 +145,6 @@ const galleryData = {
       title: "Gastroenterology Procedures",
       category: "Medical",
     },
-    
   ],
   achievements: [
     {
@@ -209,8 +207,6 @@ const galleryData = {
       title: "Patient Satisfaction Award",
       category: "Recognition",
     },
-   
-    
   ],
 };
 
@@ -245,8 +241,12 @@ const GallerySection = ({ title, subtitle, images, expandable = true }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 text-white">
-                  <h3 className="text-sm sm:text-lg font-semibold">{item.title}</h3>
-                  <p className="text-xs sm:text-sm opacity-90">{item.category}</p>
+                  <h3 className="text-sm sm:text-lg font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm opacity-90">
+                    {item.category}
+                  </p>
                 </div>
               </div>
             </div>
@@ -258,7 +258,7 @@ const GallerySection = ({ title, subtitle, images, expandable = true }) => {
         <div className="text-center mt-8">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
           >
             {showAll ? (
               <>
@@ -279,10 +279,10 @@ const GallerySection = ({ title, subtitle, images, expandable = true }) => {
 const GalleryPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-red-50 to-orange-50">
+      {/* Hero Section */}{" "}
+      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
         <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 bg-red-200/30 rounded-full mix-blend-multiply filter blur-3xl"
+          className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
@@ -299,7 +299,7 @@ const GalleryPage = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mb-8"
+              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-8"
             >
               <FaCamera className="text-white text-3xl" />
             </motion.div>
@@ -324,7 +324,6 @@ const GalleryPage = () => {
           </div>
         </div>
       </section>
-
       {/* Gallery Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <GallerySection
@@ -343,20 +342,18 @@ const GalleryPage = () => {
           title="Achievements & Recognition"
           subtitle="Our milestones and accomplishments in healthcare excellence"
           images={galleryData.achievements}
-          
         />
       </div>
-
       {/* Contact Strip */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-8 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
-              <div className="w-full h-full bg-gradient-to-r from-red-200 to-orange-200 rounded-3xl"></div>
+              <div className="w-full h-full bg-gradient-to-r from-blue-200 to-indigo-200 rounded-3xl"></div>
             </div>
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
-              <FaHospital className="mx-auto text-4xl text-red-500 mb-4" />
+              <FaHospital className="mx-auto text-4xl text-blue-600 mb-4" />
               <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
                 Want to know more about our facilities?
               </h3>
@@ -365,21 +362,21 @@ const GalleryPage = () => {
                 facilities firsthand.
               </p>
               <Link to="/book-appointment">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full text-base font-semibold hover:from-red-600 hover:to-orange-600 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-                Book a Visit
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full text-base font-semibold hover:from-blue-700 hover:to-indigo-700 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                  Book a Visit
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
               </Link>
             </div>
           </div>

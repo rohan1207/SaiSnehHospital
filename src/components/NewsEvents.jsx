@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from "../config";
 
 const events = [
   {
@@ -23,10 +23,10 @@ const NewsEvents = () => {
 
   if (loading) {
     return (
-      <section className="bg-white px-4 sm:px-6 py-8 sm:py-12">
+      <section className="bg-white px-4 sm:px-6 py-16 sm:py-24 mt-15">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-center items-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-red-500"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-blue-600"></div>
           </div>
         </div>
       </section>
@@ -35,7 +35,7 @@ const NewsEvents = () => {
 
   if (error) {
     return (
-      <section className="bg-white px-4 sm:px-6 py-8 sm:py-12">
+      <section className="bg-white px-4 sm:px-6 py-16 sm:py-24 mt-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center text-red-600">{error}</div>
         </div>
@@ -44,10 +44,10 @@ const NewsEvents = () => {
   }
 
   const featuredNews = news && news.length > 0 ? news[0] : null;
-    const recentNews = news && news.length > 1 ? news.slice(1, 4) : [];
+  const recentNews = news && news.length > 1 ? news.slice(1, 4) : [];
 
   return (
-    <section className="bg-white px-4 sm:px-6 py-8 sm:py-12">
+    <section className="bg-white px-4 sm:px-6 py-16 sm:py-24 mt-12">
       <div className="max-w-7xl mx-auto">
         {/* Header - Made responsive */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 gap-2 sm:gap-0">
@@ -56,7 +56,7 @@ const NewsEvents = () => {
           </h2>
           <Link
             to="/posts-blog"
-            className="text-red-500 text-sm sm:text-base flex items-center gap-1 hover:underline"
+            className="text-blue-600 text-sm sm:text-base flex items-center gap-1 hover:underline"
           >
             View All News & Events <span className="text-lg sm:text-xl">➤</span>
           </Link>
@@ -82,7 +82,7 @@ const NewsEvents = () => {
                     <h3 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2 group-hover:text-red-500 transition-colors">
                       {featuredNews.title}
                     </h3>
-                    <span className="text-red-500 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                    <span className="text-blue-600 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
                       Read Post <span className="text-lg">➤</span>
                     </span>
                   </div>
@@ -124,11 +124,11 @@ const NewsEvents = () => {
                 className="bg-gray-50 rounded-lg p-4 sm:p-5 hover:shadow-md transition-shadow"
               >
                 <div className="flex gap-3 sm:gap-4">
-                  <div className="text-center bg-red-100 rounded px-2 py-1 min-w-[60px]">
-                    <span className="block text-red-600 font-bold text-lg">
+                  <div className="text-center bg-blue-100 rounded px-2 py-1 min-w-[60px]">
+                    <span className="block text-blue-600 font-bold text-lg">
                       {event.date.split(" ")[0]}
                     </span>
-                    <span className="block text-red-500 text-sm">
+                    <span className="block text-blue-500 text-sm">
                       {event.date.split(" ")[1]}
                     </span>
                   </div>

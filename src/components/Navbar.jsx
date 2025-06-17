@@ -67,11 +67,12 @@ const Navbar = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
+                  className="flex items-center"
                 >
                   <img
                     src="/logo.png"
                     alt="Hospital Logo"
-                    className="h-10 w-auto"
+                    className="h-12 sm:h-14 w-auto object-contain max-w-[180px] sm:max-w-[200px]"
                   />
                 </motion.div>
               </Link>
@@ -89,7 +90,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={item.link}
-                      className="relative px-4 py-2 text-gray-700 hover:text-[#f04e30] font-medium transition-all duration-200 rounded-full hover:bg-gray-50"
+                      className="relative px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-all duration-200 rounded-full hover:bg-blue-50"
                     >
                       {item.title}
                     </Link>
@@ -104,7 +105,7 @@ const Navbar = () => {
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="inline-block ml-2 bg-[#f04e30] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg hover:bg-[#f04e30]/90 transition-all duration-300"
+                      className="inline-block ml-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300"
                     >
                       Login
                     </motion.div>
@@ -161,7 +162,7 @@ const Navbar = () => {
                   <motion.div key={item.title} whileHover={{ x: 5 }}>
                     <Link
                       to={item.link}
-                      className="block px-6 py-3 text-gray-700 hover:text-[#f04e30] hover:bg-[#f04e30]/5 rounded-full font-medium transition-all duration-200"
+                      className="block px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-full font-medium transition-all duration-200"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.title}
@@ -177,7 +178,7 @@ const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="w-full bg-[#f04e30]/10 text-[#f04e30] px-6 py-3 rounded-full font-medium transition-all duration-200 text-center mb-5"
+                  className="w-full bg-blue-50 text-blue-600 px-6 py-3 rounded-full font-medium transition-all duration-200 text-center mb-5 hover:bg-blue-100"
                 >
                   Find a Doctor
                 </motion.div>
@@ -186,7 +187,7 @@ const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="w-full bg-[#f04e30] text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg text-center transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-600 text-center transition-all duration-200"
                 >
                   Login
                 </motion.div>

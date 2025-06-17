@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from "../config";
 import { MessageCircle, X, Send } from "lucide-react";
 
 const ChatBot = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
     {
       type: "bot",
-      content: "Hello! I'm your Sai Sneh Hospital assistant. How can I help you today?",
+      content:
+        "Hello! I'm your Sai Sneh Hospital assistant. How can I help you today?",
     },
   ]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
@@ -24,25 +23,26 @@ const ChatBot = ({ isOpen, onClose }) => {
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/chat`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ message: inputMessage }),
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
-      const botMessage = { type: 'bot', content: data.response };
+      const botMessage = { type: "bot", content: data.response };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      console.error('Error fetching chatbot response:', error);
+      console.error("Error fetching chatbot response:", error);
       const errorMessage = {
-        type: 'bot',
-        content: 'Sorry, I am having trouble connecting. Please try again later.',
+        type: "bot",
+        content:
+          "Sorry, I am having trouble connecting. Please try again later.",
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -59,24 +59,22 @@ const ChatBot = ({ isOpen, onClose }) => {
 
   return (
     <>
-
-
       {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-20 sm:bottom-20 right-2 sm:right-6 w-[90vw] sm:w-96 h-[70vh] sm:h-[550px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border max-w-[100vw-1rem]">
           {/* Header */}
-          <div className="bg-red-500 text-white p-3 sm:p-4 flex justify-between items-center">
+          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 sm:p-4 flex justify-between items-center">
             <div>
               <h3 className="font-semibold text-sm sm:text-base">
                 Sai Sneh Hospital Assistant
               </h3>
-              <p className="text-[10px] sm:text-xs text-red-100">
+              <p className="text-[10px] sm:text-xs text-blue-100">
                 Get quick answers to your health queries
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-white hover:text-red-200 transition-colors"
+              className="text-white hover:text-blue-200 transition-colors"
             >
               <X size={18} sm:size={20} />
             </button>
@@ -94,7 +92,7 @@ const ChatBot = ({ isOpen, onClose }) => {
                 <div
                   className={`max-w-[85%] rounded-lg p-2.5 sm:p-3 whitespace-pre-line text-sm sm:text-base ${
                     message.type === "user"
-                      ? "bg-red-500 text-white rounded-br-none"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-br-none"
                       : "bg-gray-100 text-gray-800 rounded-bl-none"
                   }`}
                 >
@@ -123,13 +121,13 @@ const ChatBot = ({ isOpen, onClose }) => {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your health-related question..."
-                className="flex-1 resize-none border rounded-lg p-2 text-sm sm:text-base focus:outline-none focus:border-red-500 max-h-32"
+                className="flex-1 resize-none border rounded-lg p-2 text-sm sm:text-base focus:outline-none focus:border-blue-500 max-h-32"
                 rows="1"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputMessage.trim() || isLoading}
-                className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={18} className="sm:w-5 sm:h-5" />
               </button>

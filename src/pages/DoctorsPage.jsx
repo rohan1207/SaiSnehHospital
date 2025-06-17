@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion ,AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   FaStethoscope,
@@ -52,7 +52,7 @@ const doctors = [
 const services = [
   {
     id: 1,
-    icon: <FaStethoscope className="w-8 h-8" />,
+    icon: <FaStethoscope className="w-8 h-8 text-blue-500" />,
     title: "General Medicine",
     description:
       "Comprehensive medical care for adults, treating a wide range of conditions.",
@@ -60,7 +60,7 @@ const services = [
   },
   {
     id: 2,
-    icon: <FaHeartbeat className="w-8 h-8" />,
+    icon: <FaHeartbeat className="w-8 h-8 text-blue-500" />,
     title: "Cardiology",
     description:
       "Expert care for heart conditions with advanced diagnostic and treatment options.",
@@ -708,7 +708,8 @@ const DoctorsPage = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <span className="text-[#f04e30] text-sm font-medium tracking-wide uppercase">
+            {" "}
+            <span className="text-blue-500 text-sm font-medium tracking-wide uppercase">
               Our Permanent Doctors
             </span>
             <h2 className="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
@@ -725,7 +726,7 @@ const DoctorsPage = () => {
                   onClick={() => setSelectedSpecialty(specialty)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedSpecialty === specialty
-                      ? "bg-[#f04e30] text-white shadow-lg"
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
                       : "bg-white text-gray-700 hover:bg-gray-100"
                   }`}
                 >
@@ -756,7 +757,7 @@ const DoctorsPage = () => {
                         (specialty) => (
                           <span
                             key={specialty}
-                            className="px-3 py-1 text-xs bg-[#f04e30]/10 text-[#f04e30] rounded-full"
+                            className="px-3 py-1 text-xs bg-blue-500/10 text-blue-500 rounded-full"
                           >
                             {specialty}
                           </span>
@@ -792,7 +793,7 @@ const DoctorsPage = () => {
                           : "Read More"}
                       </button>
                       <Link to="/book-appointment" className="w-full">
-                        <button className="w-full bg-[#f04e30] text-white py-2.5 rounded-lg text-sm font-medium hover:bg-[#f04e30]/90 transition-all duration-300">
+                        <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2.5 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
                           Book Appointment
                         </button>
                       </Link>
@@ -808,7 +809,7 @@ const DoctorsPage = () => {
                       onClick={() => setCurrentPermanentSlide(index)}
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
                         currentPermanentSlide === index
-                          ? "bg-[#f04e30] w-4"
+                          ? "bg-blue-500 w-4"
                           : "bg-gray-300"
                       }`}
                     />
@@ -854,7 +855,7 @@ const DoctorsPage = () => {
                     {doctor.specialties.map((specialty) => (
                       <span
                         key={specialty}
-                        className="px-3 py-1 text-sm bg-[#f04e30]/10 text-[#f04e30] rounded-full"
+                        className="px-3 py-1 text-sm bg-blue-500/10 text-blue-500 rounded-full"
                       >
                         {specialty}
                       </span>
@@ -879,7 +880,7 @@ const DoctorsPage = () => {
                         : "Read More"}
                     </button>
                     <Link to="/book-appointment" className="w-full">
-                      <button className="w-full bg-[#f04e30] text-white py-2.5 rounded-lg text-sm font-medium hover:bg-[#f04e30]/90 transition-all duration-300">
+                      <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2.5 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
                         Book Appointment
                       </button>
                     </Link>

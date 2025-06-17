@@ -119,7 +119,7 @@ const AboutUs = () => {
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
-        className="relative bg-gradient-to-r from-red-500 via-red-600 to-orange-500 text-white overflow-hidden"
+        className="relative bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 text-white overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
@@ -130,24 +130,24 @@ const AboutUs = () => {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center bg-white/20 rounded-full px-4 py-2 mb-6"
             >
-              <Heart className="w-5 h-5 mr-2 text-red-200" />
+              <Heart className="w-5 h-5 mr-2 text-blue-200" />
               <span className="text-sm font-medium">
                 Best Multispecialty Hospital in Pune
               </span>
-            </motion.div>
+            </motion.div>{" "}
             <motion.h1
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
             >
-              About <span className="text-orange-300">Sai Sneh Hospital</span>
+              About <span className="text-blue-200">Sai Sneh Hospital</span>
             </motion.h1>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-xl sm:text-2xl max-w-3xl mx-auto leading-relaxed text-red-100"
+              className="text-xl sm:text-2xl max-w-3xl mx-auto leading-relaxed text-blue-100"
             >
               Serving the community with excellence, compassion, and world-class
               healthcare since 1997
@@ -169,9 +169,9 @@ const AboutUs = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 * index }}
-              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-red-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-blue-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
             >
-              <stat.icon className="w-8 h-8 text-red-500 mb-3" />
+              <stat.icon className="w-8 h-8 text-blue-500 mb-3" />
               <div className="text-3xl sm:text-4xl font-bold text-gray-800 mb-1">
                 {stat.number}
               </div>
@@ -195,7 +195,7 @@ const AboutUs = () => {
             {[
               { id: "overview", label: "Overview" },
               { id: "vision", label: "Vision & Mission" },
-             
+
               { id: "facilities", label: "Facilities" },
               { id: "founder", label: "Founder" },
             ].map((tab) => (
@@ -204,7 +204,7 @@ const AboutUs = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 text-sm sm:text-base ${
                   activeTab === tab.id
-                    ? "bg-red-500 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
@@ -223,7 +223,7 @@ const AboutUs = () => {
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
                   Your Health Is Our{" "}
-                  <span className="text-red-500">Top Priority</span>
+                  <span className="text-blue-500">Top Priority</span>
                 </h2>
                 <div className="space-y-6 text-gray-600 leading-relaxed">
                   <p className="text-lg">
@@ -252,9 +252,9 @@ const AboutUs = () => {
                 <div className="mt-8 grid sm:grid-cols-2 gap-4">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="bg-red-50 rounded-xl p-4 border border-red-100"
+                    className="bg-blue-50 rounded-xl p-4 border border-blue-100"
                   >
-                    <MapPin className="w-6 h-6 text-red-500 mb-2" />
+                    <MapPin className="w-6 h-6 text-blue-500 mb-2" />
                     <h3 className="font-semibold text-gray-800 mb-1">
                       Location
                     </h3>
@@ -264,9 +264,9 @@ const AboutUs = () => {
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="bg-orange-50 rounded-xl p-4 border border-orange-100"
+                    className="bg-blue-50/80 rounded-xl p-4 border border-blue-100"
                   >
-                    <Award className="w-6 h-6 text-orange-500 mb-2" />
+                    <Award className="w-6 h-6 text-blue-500 mb-2" />
                     <h3 className="font-semibold text-gray-800 mb-1">
                       Accreditation
                     </h3>
@@ -283,7 +283,8 @@ const AboutUs = () => {
                 transition={{ duration: 0.5 }}
                 className="relative"
               >
-                <div className="bg-gradient-to-br from-red-500 to-orange-500 rounded-3xl p-8 text-white">
+                {" "}
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white">
                   <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm">
                     <h3 className="text-2xl font-bold mb-4">Why Choose Us?</h3>
                     <ul className="space-y-3">
@@ -323,7 +324,7 @@ const AboutUs = () => {
               <div className="grid lg:grid-cols-2 gap-8">
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-red-500/95 to-orange-500/95 backdrop-blur-lg rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden"
+                  className="bg-gradient-to-br from-blue-500/95 to-blue-600/95 backdrop-blur-lg rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-[url('/logo.png')] opacity-5 bg-center bg-no-repeat bg-contain"></div>
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
@@ -347,11 +348,13 @@ const AboutUs = () => {
                   whileHover={{ y: -5 }}
                   className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-red-50"></div>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-red-100/50 rounded-full -translate-y-16 translate-x-16"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-100/50 rounded-full translate-y-12 -translate-x-12"></div>
+                  {" "}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full -translate-y-16 translate-x-16"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-200/50 rounded-full translate-y-12 -translate-x-12"></div>
                   <div className="relative">
-                    <div className="bg-gradient-to-br from-red-500 to-orange-500 rounded-full w-16 h-16 flex items-center justify-center mb-8">
+                    {" "}
+                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full w-16 h-16 flex items-center justify-center mb-8">
                       <Heart className="w-8 h-8 text-white" />
                     </div>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900">
@@ -376,36 +379,36 @@ const AboutUs = () => {
                   <div className="relative">
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
                       Our Core Values
-                    </h3>{" "}
+                    </h3>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                       {[
                         {
                           icon: Heart,
                           title: "Compassion",
                           desc: "Caring with empathy",
-                          gradient: "from-red-500 to-orange-500",
-                          bg: "from-red-50 to-orange-50",
+                          gradient: "from-blue-500 to-blue-600",
+                          bg: "from-blue-50 to-blue-100",
                         },
                         {
                           icon: Shield,
                           title: "Safety",
                           desc: "Ensuring patient safety",
-                          gradient: "from-orange-500 to-amber-500",
-                          bg: "from-orange-50 to-amber-50",
+                          gradient: "from-blue-400 to-blue-500",
+                          bg: "from-blue-50 to-blue-100",
                         },
                         {
                           icon: Award,
                           title: "Excellence",
                           desc: "Striving for the best",
-                          gradient: "from-red-500 to-rose-500",
-                          bg: "from-red-50 to-rose-50",
+                          gradient: "from-blue-500 to-blue-600",
+                          bg: "from-blue-50 to-blue-100",
                         },
                         {
                           icon: Users,
                           title: "Respect",
                           desc: "Treating all with dignity",
-                          gradient: "from-amber-500 to-orange-500",
-                          bg: "from-amber-50 to-orange-50",
+                          gradient: "from-blue-400 to-blue-500",
+                          bg: "from-blue-50 to-blue-100",
                         },
                       ].map((value, index) => (
                         <motion.div
@@ -444,7 +447,6 @@ const AboutUs = () => {
             </motion.div>
           )}
           {/* Specialties Tab */}
-      
           {/* Facilities Tab */}
           {activeTab === "facilities" && (
             <motion.div
@@ -455,7 +457,7 @@ const AboutUs = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                   World-Class{" "}
-                  <span className="text-red-500">Facilities & Services</span>
+                  <span className="text-blue-600">Facilities & Services</span>
                 </h2>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                   State-of-the-art infrastructure and advanced medical equipment
@@ -477,8 +479,9 @@ const AboutUs = () => {
                       whileHover={{ scale: 1.02 }}
                       className="flex items-start space-x-4 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all"
                     >
-                      <div className="bg-red-50 p-3 rounded-xl">
-                        <facility.icon className="w-6 h-6 text-red-500" />
+                      {" "}
+                      <div className="bg-blue-50 p-3 rounded-xl">
+                        <facility.icon className="w-6 h-6 text-blue-500" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-1">
@@ -608,7 +611,6 @@ const AboutUs = () => {
                         </motion.div>
                       ))}
                     </div>
-                    
                   </div>
                 </div>
               </div>
@@ -618,7 +620,7 @@ const AboutUs = () => {
       </div>
 
       {/* Contact Strip */}
-      <div className="mt-8 sm:mt-16 bg-gradient-to-r from-red-50 to-orange-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+      <div className="mt-8 sm:mt-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -642,7 +644,7 @@ const AboutUs = () => {
           <Link
             to="/contact"
             href="#"
-            className="inline-flex items-center gap-2 bg-red-500 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-red-600 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold hover:from-blue-600 hover:to-blue-700 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Contact Us
             <svg

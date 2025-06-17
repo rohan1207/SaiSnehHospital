@@ -303,43 +303,41 @@ const ServicesPage = () => {
 
   return (
     <div className="services-container min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-red-50 to-orange-50">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-orange-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+      {/* Hero Section */}{" "}
+      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mb-8 animate-bounce">
+            {" "}
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-8 animate-bounce">
               <FaStethoscope className="text-white text-3xl" />
             </div>
-
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
               Our Medical Services
             </h1>
-
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Comprehensive healthcare solutions with cutting-edge technology
               and expert medical professionals
             </p>
-
             {/* Search Bar */}
             <div className="mt-8 max-w-xl mx-auto">
               <div className="relative group">
-                <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-red-500 transition-colors" />
+                {" "}
+                <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
                 <input
                   type="text"
                   placeholder="Search for a service..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-red-100 focus:border-red-500 transition-all duration-300 text-lg"
+                  className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-300 text-lg"
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* Main Services Grid */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
@@ -374,7 +372,8 @@ const ServicesPage = () => {
                 </div>
                 {/* Content Section */}{" "}
                 <div className="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-red-600 transition-colors duration-300">
+                  {" "}
+                  <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-blue-600 transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-4 flex-grow text-xs md:text-sm leading-relaxed line-clamp-2 md:line-clamp-none">
@@ -384,7 +383,7 @@ const ServicesPage = () => {
                   <div className="mt-auto pt-4">
                     <Link
                       to={`/services/${service.link}`}
-                      className="inline-flex items-center text-red-500 font-medium group/link hover:text-red-700 transition-colors duration-200"
+                      className="inline-flex items-center text-blue-500 font-medium group/link hover:text-blue-700 transition-colors duration-200"
                     >
                       Learn more
                       <svg
@@ -434,12 +433,12 @@ const ServicesPage = () => {
           )}
         </div>
       </section>
-
       {/* Specialized Sub-Services Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mb-6">
+            {" "}
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-6">
               <FaHeartbeat className="text-white text-2xl" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -569,18 +568,18 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-
       {/* Contact Strip */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 relative overflow-hidden">
+          {" "}
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl p-8 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="w-full h-full bg-gradient-to-r from-red-200 to-orange-200 rounded-3xl"></div>
+              <div className="w-full h-full bg-gradient-to-r from-blue-200 to-blue-300 rounded-3xl"></div>
             </div>
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
-              <FaHospital className="mx-auto text-4xl text-red-500 mb-4" />
+              <FaHospital className="mx-auto text-4xl text-blue-500 mb-4" />
               <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
                 Have any questions or need a consultation?
               </h3>
@@ -589,21 +588,21 @@ const ServicesPage = () => {
                 any medical queries or appointment scheduling.
               </p>
               <Link to="/contact">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full text-base font-semibold hover:from-red-600 hover:to-orange-600 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full text-base font-semibold hover:from-blue-600 hover:to-blue-700 transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                   Contact Us
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
               </Link>
             </div>
           </div>

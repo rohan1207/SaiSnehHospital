@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from "../config";
 import { Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
 import Navbar from "../components/Navbar";
@@ -24,7 +24,7 @@ const Posts_Blog = () => {
       <div className="min-h-screen bg-white">
         <Navbar />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-red-500"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-600"></div>
         </div>
       </div>
     );
@@ -49,8 +49,8 @@ const Posts_Blog = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">
           Latest News & Events
         </h1>
 
@@ -63,7 +63,7 @@ const Posts_Blog = () => {
               className={`px-6 py-2 rounded-full text-sm font-medium transition-colors
                 ${
                   activeCategory === category
-                    ? "bg-red-500 text-white"
+                    ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
             >
@@ -95,7 +95,7 @@ const Posts_Blog = () => {
                 </div>
                 <Link
                   to={`/news/${post._id}`}
-                  className="block mb-4 hover:text-red-500 transition-colors"
+                  className="block mb-4 hover:text-blue-600 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-gray-900">
                     {post.title}
@@ -106,7 +106,7 @@ const Posts_Blog = () => {
                 </p>
                 <Link
                   to={`/news/${post._id}`}
-                  className="inline-block text-red-500 font-medium hover:text-red-600 transition-colors"
+                  className="inline-block text-blue-600 font-medium hover:text-blue-700 transition-colors"
                 >
                   Read More →
                 </Link>

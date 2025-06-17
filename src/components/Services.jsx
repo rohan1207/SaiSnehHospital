@@ -48,15 +48,15 @@ const services = [
     link: "nephrology",
   },
   {
-    id: 5,    
+    id: 5,
     icon: <FaProcedures className="w-8 h-8" />,
     title: "Gastroenterology",
     description:
       "Diagnosis and treatment of digestive system and gastrointestinal disorders.",
     link: "gastroenterology",
-  },  
+  },
   {
-    id: 6,  
+    id: 6,
     icon: <FaHospital className="w-8 h-8" />,
     title: "Medical Oncology",
     description: "Advanced cancer care with comprehensive treatment protocols.",
@@ -121,7 +121,7 @@ const Services = () => {
     : services;
 
   return (
-    <section className="py-12 sm:py-20 bg-white">
+    <section className="py-12 sm:py-20 bg-gradient-to-br from-white to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
           <motion.span
@@ -129,7 +129,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[#f04e30] text-xs sm:text-sm font-medium tracking-wide uppercase"
+            className="text-blue-600 text-xs sm:text-sm font-medium tracking-wide uppercase"
           >
             Our Services
           </motion.span>
@@ -153,15 +153,16 @@ const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-gradient-to-br from-white to-blue-50/30 p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100/30"
             >
-              <div className="p-3 sm:p-4 bg-[#f04e30]/10 rounded-lg sm:rounded-xl inline-block">
-                <div className="text-[#f04e30]">{service.icon}</div>
-              </div>
-              <h3 className="mt-3 sm:mt-4 text-base sm:text-xl font-semibold text-gray-900 line-clamp-1">
+              {" "}
+              <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl inline-block">
+                <div className="text-white">{service.icon}</div>
+              </div>{" "}
+              <h3 className="mt-3 sm:mt-4 text-base sm:text-xl font-semibold text-gray-800 line-clamp-1">
                 {service.title}
               </h3>
-              <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-600 line-clamp-2 sm:line-clamp-none">
+              <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-700 line-clamp-2 sm:line-clamp-none">
                 {service.description}
               </p>{" "}
               <Link
@@ -174,7 +175,7 @@ const Services = () => {
               >
                 <motion.div
                   whileHover={{ x: 5 }}
-                  className="mt-2 sm:mt-4 inline-flex items-center text-[#f04e30] text-sm sm:text-base font-medium cursor-pointer"
+                  className="mt-2 sm:mt-4 inline-flex items-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-sm sm:text-base font-medium cursor-pointer transition-all duration-300"
                 >
                   Learn more
                   <svg
@@ -207,7 +208,7 @@ const Services = () => {
           >
             <button
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#f04e30] text-white rounded-xl font-medium shadow-lg hover:bg-[#f04e30]/90 transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-medium shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 hover:shadow-blue-100"
             >
               {showAll ? "Show Less" : "View All Services"}
               <svg

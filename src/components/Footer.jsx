@@ -31,9 +31,9 @@ const Footer = () => {
           <div className="text-center sm:text-left">
             {" "}
             <img
-              src=""
+              src="/footer_logo.png"
               alt="Sai Sneh Logo"
-              className="h-12 mx-auto sm:mx-0 mb-6"
+              className="h-30 w-40 mx-auto sm:mx-0 mb-6"
             />
             <p className="text-sm leading-relaxed max-w-md mx-auto sm:mx-0">
               Sai Sneh is committed to providing world-class healthcare with a
@@ -43,25 +43,25 @@ const Footer = () => {
             <div className="flex justify-center sm:justify-start space-x-4 mt-6">
               <a
                 href="https://www.facebook.com/saisnehhospital/"
-                className="text-gray-400 hover:text-red-500 transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="https://x.com/intent/post?text=Check%20out%20&url=https%3A%2F%2Fwww.saisnehhospital.com"
-                className="text-gray-400 hover:text-red-500 transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="https://www.youtube.com/watch?v=dtBqw8ICgDo"
-                className="text-gray-400 hover:text-red-500 transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Youtube size={20} />
               </a>
               <a
                 href="https://www.linkedin.com/cws/share?url=https://www.saisnehhospital.com"
-                className="text-gray-400 hover:text-red-500 transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Linkedin size={20} />
               </a>
@@ -71,9 +71,9 @@ const Footer = () => {
           {/* Opening Hours Section */}
           <div className="text-center sm:text-left">
             <div className="relative">
-              <div className="absolute -top-3 left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0 w-16 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
+              <div className="absolute -top-3 left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0 w-16 h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"></div>
               <h3 className="text-xl font-semibold text-white mb-6 flex items-center justify-center sm:justify-start gap-2">
-                <Clock className="text-red-500" size={20} />
+                <Clock className="text-blue-500" size={20} />
                 Opening Hours
               </h3>
             </div>
@@ -93,7 +93,9 @@ const Footer = () => {
                     </span>
                     <span className="text-gray-400">
                       {schedule.open === "Closed" ? (
-                        <span className="text-red-500 font-medium">Closed</span>
+                        <span className="text-blue-500 font-medium">
+                          Closed
+                        </span>
                       ) : (
                         `${schedule.open} - ${schedule.close}`
                       )}
@@ -102,7 +104,7 @@ const Footer = () => {
                 ))}
               </div>
               <div className="mt-4 pt-4 border-t border-gray-700/50">
-                <div className="flex items-center justify-center gap-2 text-red-500">
+                <div className="flex items-center justify-center gap-2 text-blue-500">
                   <Phone size={16} className="animate-pulse" />
                   <span className="font-medium">Emergency: 24x7 Available</span>
                 </div>
@@ -121,7 +123,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/about"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     About Us
                   </a>
@@ -129,7 +131,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/doctors"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Our Doctors
                   </a>
@@ -137,7 +139,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Medical Services
                   </a>
@@ -145,7 +147,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Patient Stories
                   </a>
@@ -153,7 +155,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/blog"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     News & Events
                   </a>
@@ -161,7 +163,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/gallery"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Gallery
                   </a>
@@ -169,7 +171,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/contact"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Contact Us
                   </a>
@@ -186,7 +188,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     General Medicine
                   </a>
@@ -194,7 +196,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Cardiology
                   </a>
@@ -202,7 +204,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Neurology
                   </a>
@@ -210,7 +212,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Orthopedics
                   </a>
@@ -218,7 +220,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Emergency Care
                   </a>
@@ -226,7 +228,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/services"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     Diagnostic Center
                   </a>
@@ -241,30 +243,33 @@ const Footer = () => {
               </h3>
               <ul className="space-y-4 max-w-md mx-auto sm:mx-0">
                 <li className="flex items-start gap-3 justify-center sm:justify-start">
+                  {" "}
                   <MapPin
                     size={20}
-                    className="text-red-500 flex-shrink-0 mt-1"
+                    className="text-blue-500 flex-shrink-0 mt-1"
                   />
                   <p className="text-sm text-center sm:text-left">
-                  Pune-Satara Road, opp. PMT Bus Depot, Katraj Pune, Maharashtra, India 411046
+                    Pune-Satara Road, opp. PMT Bus Depot, Katraj Pune,
+                    Maharashtra, India 411046
                   </p>
                 </li>
                 <li className="flex items-center gap-3 justify-center sm:justify-start">
-                  <Phone size={20} className="text-red-500 flex-shrink-0" />
+                  <Phone size={20} className="text-blue-500 flex-shrink-0" />
                   <a
                     href="tel:+918048060580"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
                     +91 8048060580
                   </a>
                 </li>
                 <li className="flex items-center gap-3 justify-center sm:justify-start">
-                  <Mail size={20} className="text-red-500 flex-shrink-0" />
+                  {" "}
+                  <Mail size={20} className="text-blue-500 flex-shrink-0" />
                   <a
                     href="mailto:info@saisnehhospital.com"
-                    className="text-sm hover:text-red-500 transition-colors"
+                    className="text-sm hover:text-blue-500 transition-colors"
                   >
-                  info@saisnehhospital.com
+                    info@saisnehhospital.com
                   </a>
                 </li>
               </ul>

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -68,7 +66,11 @@ const PatientDashboard = () => {
     { id: "bookTest", icon: RiTestTubeLine, label: "Book Test" },
     { id: "reports", icon: RiFileListLine, label: "Reports" },
     { id: "insurance", icon: RiShieldCrossLine, label: "Insurance" },
-    { id: "appointments", icon: RiCalendarCheckLine, label: " Book Appointments" },
+    {
+      id: "appointments",
+      icon: RiCalendarCheckLine,
+      label: " Book Appointments",
+    },
   ];
 
   const handleMenuClick = (tabId) => {
@@ -135,7 +137,7 @@ const PatientDashboard = () => {
         {/* User Profile Section */}
         <div className="flex-shrink-0 p-6 border-b border-gray-100">
           <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mb-4">
+            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-4">
               <span className="text-white text-2xl font-semibold">
                 {getUserInitials(userData.name)}
               </span>
@@ -156,7 +158,7 @@ const PatientDashboard = () => {
               className={`w-full flex items-center p-3 rounded-xl transition-all duration-200 text-left
                 ${
                   activeTab === item.id
-                    ? "bg-orange-50 text-orange-600 shadow-sm"
+                    ? "bg-blue-50 text-blue-600 shadow-sm"
                     : "text-gray-600 hover:bg-gray-50"
                 }`}
             >
@@ -176,10 +178,8 @@ const PatientDashboard = () => {
             <span className="ml-3 font-medium">Logout</span>
           </button>
         </div>
-      </aside>
-
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col h-screen overflow-hidden">
+      </aside>      {/* Main Content */}
+      <main className="flex-1 flex flex-col h-screen">
         {/* Mobile Header */}
         <header className="lg:hidden bg-white shadow-sm p-4 flex items-center justify-between flex-shrink-0 relative z-10">
           <button
@@ -192,8 +192,7 @@ const PatientDashboard = () => {
           <div className="w-10 h-10"></div> {/* Spacer for centering */}
         </header>
 
-        {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+        {/* Content Area */}        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-20">
           <DashboardContent activeTab={activeTab} userData={userData} />
         </div>
       </main>
@@ -230,7 +229,7 @@ const ProfileSection = ({ userData }) => {
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Profile</h2>
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8">
-          <div className="w-32 h-32 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center flex-shrink-0">
             <span className="text-white text-4xl font-semibold">
               {getUserInitials(userData.name)}
             </span>
@@ -350,13 +349,13 @@ const BookTestSection = () => {
               {test.description}
             </p>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-orange-600 font-semibold text-lg">
+              <span className="text-blue-600 font-semibold text-lg">
                 {test.price}
               </span>
             </div>
             <button
               onClick={() => handleBookNow(test)}
-              className="w-full bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 transition-colors font-medium"
+              className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition-colors font-medium"
             >
               Book Now
             </button>
@@ -401,7 +400,7 @@ const BookTestSection = () => {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Enter your full name"
                     value={bookingForm.name}
                     onChange={(e) =>
@@ -417,7 +416,7 @@ const BookTestSection = () => {
                   <input
                     type="tel"
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Enter your phone number"
                     value={bookingForm.phone}
                     onChange={(e) =>
@@ -432,7 +431,7 @@ const BookTestSection = () => {
                   </label>
                   <textarea
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Enter your address"
                     rows="3"
                     value={bookingForm.address}
@@ -453,7 +452,7 @@ const BookTestSection = () => {
                     <input
                       type="date"
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                       value={bookingForm.date}
                       onChange={(e) =>
                         setBookingForm({ ...bookingForm, date: e.target.value })
@@ -468,7 +467,7 @@ const BookTestSection = () => {
                     </label>
                     <select
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                       value={bookingForm.visitTime}
                       onChange={(e) =>
                         setBookingForm({
@@ -493,13 +492,13 @@ const BookTestSection = () => {
                 <div className="flex items-center justify-between pt-4">
                   <div>
                     <p className="text-sm text-gray-600">Total Amount:</p>
-                    <p className="text-lg font-semibold text-orange-600">
+                    <p className="text-lg font-semibold text-blue-600">
                       {selectedTest?.price}
                     </p>
                   </div>
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     Confirm Booking
                   </button>
@@ -579,7 +578,7 @@ const ReportsSection = () => {
                     {report.status}
                   </span>
                   {report.status === "Ready" && (
-                    <button className="flex items-center space-x-1 text-orange-500 hover:text-orange-600 font-medium">
+                    <button className="flex items-center space-x-1 text-blue-600 hover:text-blue-700 font-medium">
                       <RiDownloadLine size={16} />
                       <span>Download</span>
                     </button>
@@ -701,7 +700,7 @@ const InsuranceSection = () => {
               <input
                 type="text"
                 required
-                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Enter your full name"
                 value={formData.name}
                 onChange={(e) =>
@@ -716,7 +715,7 @@ const InsuranceSection = () => {
               <input
                 type="tel"
                 required
-                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={(e) =>
@@ -731,7 +730,7 @@ const InsuranceSection = () => {
               <input
                 type="email"
                 required
-                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) =>
@@ -746,7 +745,7 @@ const InsuranceSection = () => {
               <input
                 type="text"
                 required
-                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Enter your occupation"
                 value={formData.occupation}
                 onChange={(e) =>
@@ -761,7 +760,7 @@ const InsuranceSection = () => {
               <input
                 type="number"
                 required
-                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="Enter number of family members"
                 value={formData.familyMembers}
                 onChange={(e) =>
@@ -773,7 +772,7 @@ const InsuranceSection = () => {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Submit Enquiry
             </button>
@@ -908,7 +907,7 @@ const AppointmentSection = () => {
             </div>
             <button
               onClick={() => handleBookNow(doctor)}
-              className="w-full bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 transition-colors font-medium mt-4"
+              className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition-colors font-medium mt-4"
             >
               Book Appointment
             </button>
@@ -958,7 +957,7 @@ const AppointmentSection = () => {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Enter your full name"
                     value={bookingForm.name}
                     onChange={(e) =>
@@ -974,7 +973,7 @@ const AppointmentSection = () => {
                   <input
                     type="tel"
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Enter your phone number"
                     value={bookingForm.phone}
                     onChange={(e) =>
@@ -993,7 +992,7 @@ const AppointmentSection = () => {
                       required
                       min="0"
                       max="120"
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                       placeholder="Your age"
                       value={bookingForm.age}
                       onChange={(e) =>
@@ -1007,7 +1006,7 @@ const AppointmentSection = () => {
                     </label>
                     <select
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                       value={bookingForm.gender}
                       onChange={(e) =>
                         setBookingForm({
@@ -1030,7 +1029,7 @@ const AppointmentSection = () => {
                   </label>
                   <textarea
                     required
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     placeholder="Brief description of your health concern"
                     rows="3"
                     value={bookingForm.reason}
@@ -1048,7 +1047,7 @@ const AppointmentSection = () => {
                     <label className="flex items-center">
                       <input
                         type="radio"
-                        className="form-radio text-orange-500"
+                        className="form-radio text-blue-500"
                         name="previousVisit"
                         value="yes"
                         checked={bookingForm.previousVisit === "yes"}
@@ -1064,7 +1063,7 @@ const AppointmentSection = () => {
                     <label className="flex items-center">
                       <input
                         type="radio"
-                        className="form-radio text-orange-500"
+                        className="form-radio text-blue-500"
                         name="previousVisit"
                         value="no"
                         checked={bookingForm.previousVisit === "no"}
@@ -1088,7 +1087,7 @@ const AppointmentSection = () => {
                     <input
                       type="date"
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                       value={bookingForm.preferredDate}
                       onChange={(e) =>
                         setBookingForm({
@@ -1106,7 +1105,7 @@ const AppointmentSection = () => {
                     </label>
                     <select
                       required
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                       value={bookingForm.preferredTime}
                       onChange={(e) =>
                         setBookingForm({
@@ -1140,7 +1139,7 @@ const AppointmentSection = () => {
                   </div>
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     Confirm Booking
                   </button>

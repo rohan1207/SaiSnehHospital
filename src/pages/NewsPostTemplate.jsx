@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { API_BASE_URL } from '../config';
+import React, { useState, useEffect, useContext } from "react";
+import { API_BASE_URL } from "../config";
 import { useParams, Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
 import Navbar from "../components/Navbar";
@@ -95,7 +95,7 @@ const NewsPostTemplate = () => {
   if (loading || contextLoading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-red-500"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -111,7 +111,7 @@ const NewsPostTemplate = () => {
         </p>
         <Link
           to="/"
-          className="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition-colors"
+          className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
         >
           Return Home
         </Link>
@@ -141,7 +141,7 @@ const NewsPostTemplate = () => {
               alt={post.title}
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-red-500/10 to-transparent mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-600/10 to-transparent mix-blend-overlay" />
           </div>
 
           {/* Post Header */}
@@ -149,11 +149,11 @@ const NewsPostTemplate = () => {
             {/* Meta Info */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
               <div className="flex items-center gap-2">
-                <RiCalendarLine className="text-red-500" />
+                <RiCalendarLine className="text-blue-600" />
                 <span>{post.date}</span>
               </div>
               <div className="flex items-center gap-2">
-                <RiFolder2Line className="text-red-500" />
+                <RiFolder2Line className="text-blue-600" />
                 <span>{post.category}</span>
               </div>
             </div>
@@ -169,7 +169,7 @@ const NewsPostTemplate = () => {
                 onClick={() => setIsShareMenuOpen(!isShareMenuOpen)}
                 className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-full transition-colors"
               >
-                <RiShareFill className="text-red-500" />
+                <RiShareFill className="text-blue-600" />
                 <span className="text-sm font-medium text-gray-700">Share</span>
               </button>
 
@@ -202,7 +202,7 @@ const NewsPostTemplate = () => {
             </div>
 
             {/* Article Content */}
-            <article className="prose prose-lg max-w-none prose-red">
+            <article className="prose prose-lg max-w-none prose-blue">
               {post.content.split("\n\n").map((paragraph, index) => (
                 <p key={index} className="text-gray-700 leading-relaxed">
                   {paragraph.trim()}
@@ -238,7 +238,7 @@ const NewsPostTemplate = () => {
                             <RiCalendarLine />
                             <span>{relatedPost.date}</span>
                           </div>
-                          <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-red-500 transition-colors">
+                          <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
                             {relatedPost.title}
                           </h3>
                           {relatedPost.excerpt && (

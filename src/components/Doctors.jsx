@@ -53,7 +53,7 @@ const Doctors = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-[#f04e30] text-xs sm:text-sm font-medium tracking-wide uppercase"
+              className="text-blue-600 text-xs sm:text-sm font-medium tracking-wide uppercase"
             >
               Our Medical Team
             </motion.span>
@@ -123,31 +123,31 @@ const Doctors = () => {
                     <h3 className="text-xl font-semibold text-gray-900">
                       {doctors[currentIndex].name}
                     </h3>
-                    <p className="mt-1 text-[#f04e30]">
+                    <p className="mt-1 text-blue-600">
                       {doctors[currentIndex].experience}
                     </p>
                     <div className="mt-6 flex flex-col sm:flex-row gap-3">
                       <Link
                         to={`/doctor/${doctors[currentIndex].id}`}
-                        className="w-full text-center bg-transparent border-2 border-[#f04e30] text-[#f04e30] py-3 px-4 rounded-lg hover:bg-[#f04e30] hover:text-white transition-colors duration-300"
+                        className="w-full text-center bg-transparent border-2 border-blue-600 text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-300"
                       >
                         Read More
                       </Link>
                       {doctors[currentIndex].specialties.map((specialty) => (
                         <span
                           key={specialty}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#f04e30]/10 text-[#f04e30]"
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-600"
                         >
                           {specialty}
                         </span>
                       ))}
                     </div>
-                    
+
                     <Link to={`/book-appointment`}>
                       <motion.div
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full mt-6 py-3 px-4 bg-[#f04e30] text-white rounded-xl font-medium shadow-lg hover:bg-[#f04e30]/90 transition-all duration-300"
+                        className="w-full mt-6 py-3 px-4 bg-blue-600 text-white rounded-xl font-medium shadow-lg hover:bg-blue-700 transition-all duration-300"
                       >
                         Book Appointment
                       </motion.div>
@@ -164,7 +164,7 @@ const Doctors = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-[#f04e30] w-4" : "bg-gray-400"
+                    index === currentIndex ? "bg-blue-600 w-4" : "bg-gray-400"
                   }`}
                 />
               ))}
@@ -184,7 +184,7 @@ const Doctors = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-[#f04e30] text-sm font-medium tracking-wide uppercase"
+            className="text-blue-600 text-sm font-medium tracking-wide uppercase"
           >
             Our Medical Team
           </motion.span>
@@ -261,19 +261,18 @@ const Doctors = () => {
                 <h3 className="text-xl font-semibold text-gray-900">
                   {doctor.name}
                 </h3>
-                <p className="mt-1 text-[#f04e30]">{doctor.experience}</p>
+                <p className="mt-1 text-blue-600">{doctor.experience}</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {doctor.specialties.map((specialty) => (
                     <span
                       key={specialty}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#f04e30]/10 text-[#f04e30]"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-600"
                     >
                       {specialty}
                     </span>
                   ))}
                 </div>
 
-                {/* Qualifications */}
                 {doctor.qualifications && (
                   <div className="mt-4">
                     <h4 className="text-sm font-semibold text-gray-700 mb-2">
@@ -287,7 +286,6 @@ const Doctors = () => {
                   </div>
                 )}
 
-                {/* Services for Dr. Pallavi */}
                 {doctor.services && (
                   <div className="mt-4">
                     <h4 className="text-sm font-semibold text-gray-700 mb-2">
@@ -307,12 +305,11 @@ const Doctors = () => {
                 )}
               </div>
 
-              {/* Book Appointment Button */}
               <div className="p-6 pt-0">
                 <div className="flex flex-col sm:flex-row gap-3 mb-4">
                   <Link
                     to={`/doctor/${doctor.id}`}
-                    className="w-full text-center bg-transparent border-2 border-[#f04e30] text-[#f04e30] py-3 px-4 rounded-lg hover:bg-[#f04e30] hover:text-white transition-colors duration-300"
+                    className="w-full text-center bg-transparent border-2 border-blue-500 text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors duration-300"
                   >
                     Read More
                   </Link>
@@ -321,7 +318,7 @@ const Doctors = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 px-4 bg-[#f04e30] text-white rounded-xl font-medium shadow-lg hover:bg-[#f04e30]/90 transition-all duration-300"
+                    className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl font-medium shadow-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300"
                   >
                     Book Appointment
                   </motion.button>

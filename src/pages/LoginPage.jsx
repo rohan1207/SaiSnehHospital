@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from "../config";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -198,7 +198,7 @@ const LoginPage = () => {
       {/* Back to Home button */}
       <button
         onClick={() => navigate("/")}
-        className="absolute top-4 left-4 flex items-center px-3 py-2 rounded-lg bg-white/80 hover:bg-orange-500 hover:text-white text-orange-600 shadow transition-all focus:outline-none focus:ring-2 focus:ring-orange-400 sm:top-6 sm:left-6 z-20"
+        className="absolute top-4 left-4 flex items-center px-3 py-2 rounded-lg bg-white/80 hover:bg-blue-600 hover:text-white text-blue-600 shadow transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 sm:top-6 sm:left-6 z-20"
         style={{ minWidth: 0 }}
         aria-label="Back to Home"
       >
@@ -210,9 +210,15 @@ const LoginPage = () => {
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
-        <span className="hidden xs:inline-block text-sm font-semibold">Back to Home</span>
+        <span className="hidden xs:inline-block text-sm font-semibold">
+          Back to Home
+        </span>
       </button>
       <div className="max-w-md w-full space-y-8 bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl">
         <div className="text-center">
@@ -262,7 +268,7 @@ const LoginPage = () => {
             }}
             className={`flex-1 py-3 px-4 text-sm font-medium ${
               activeTab === "admin"
-                ? "bg-orange-500 text-white"
+                ? "bg-blue-600 text-white"
                 : "bg-white text-gray-700 hover:bg-gray-50"
             }`}
           >
@@ -275,7 +281,7 @@ const LoginPage = () => {
             }}
             className={`flex-1 py-3 px-4 text-sm font-medium ${
               activeTab === "patient"
-                ? "bg-orange-500 text-white"
+                ? "bg-blue-600 text-white"
                 : "bg-white text-gray-700 hover:bg-gray-50"
             }`}
           >
@@ -299,7 +305,7 @@ const LoginPage = () => {
                   name="adminId"
                   type="text"
                   required
-                  className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                  className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                   placeholder="Enter your admin ID"
                   value={adminData.adminId}
                   onChange={(e) =>
@@ -319,7 +325,7 @@ const LoginPage = () => {
                   name="password"
                   type="password"
                   required
-                  className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                  className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                   placeholder="Enter your password"
                   value={adminData.password}
                   onChange={(e) =>
@@ -334,10 +340,8 @@ const LoginPage = () => {
                 type="submit"
                 disabled={isLoading}
                 className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                  isLoading
-                    ? "bg-orange-300"
-                    : "bg-orange-500 hover:bg-orange-600"
-                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500`}
+                  isLoading ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600`}
               >
                 {isLoading ? "Logging in..." : "Login"}
               </button>
@@ -363,7 +367,7 @@ const LoginPage = () => {
                       name="phone"
                       type="tel"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Enter your phone number"
                       value={patientData.phone}
                       onChange={(e) =>
@@ -386,7 +390,7 @@ const LoginPage = () => {
                       name="password"
                       type="password"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Enter your password"
                       value={patientData.password}
                       onChange={(e) =>
@@ -405,9 +409,9 @@ const LoginPage = () => {
                     disabled={isLoading}
                     className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
                       isLoading
-                        ? "bg-orange-300"
-                        : "bg-orange-500 hover:bg-orange-600"
-                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500`}
+                        ? "bg-blue-400"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600`}
                   >
                     {isLoading ? "Logging in..." : "Login"}
                   </button>
@@ -420,7 +424,7 @@ const LoginPage = () => {
                       setShowSignup(true);
                       setError("");
                     }}
-                    className="font-medium text-orange-600 hover:text-orange-500"
+                    className="font-medium text-blue-600 hover:text-blue-700"
                   >
                     New patient? Register here
                   </button>
@@ -441,7 +445,7 @@ const LoginPage = () => {
                       name="name"
                       type="text"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Enter your full name"
                       value={signupData.name}
                       onChange={(e) =>
@@ -461,7 +465,7 @@ const LoginPage = () => {
                       name="phone"
                       type="tel"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Enter your phone number"
                       value={signupData.phone}
                       onChange={(e) =>
@@ -481,7 +485,7 @@ const LoginPage = () => {
                       name="address"
                       required
                       rows={3}
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Enter your address"
                       value={signupData.address}
                       onChange={(e) =>
@@ -504,7 +508,7 @@ const LoginPage = () => {
                       name="password"
                       type="password"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Create a password"
                       value={signupData.password}
                       onChange={(e) =>
@@ -527,7 +531,7 @@ const LoginPage = () => {
                       name="confirmPassword"
                       type="password"
                       required
-                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                      className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-600 focus:border-blue-600"
                       placeholder="Confirm your password"
                       value={signupData.confirmPassword}
                       onChange={(e) =>
@@ -546,9 +550,9 @@ const LoginPage = () => {
                     disabled={isLoading}
                     className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
                       isLoading
-                        ? "bg-orange-300"
-                        : "bg-orange-500 hover:bg-orange-600"
-                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500`}
+                        ? "bg-blue-400"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600`}
                   >
                     {isLoading ? "Creating Account..." : "Create Account"}
                   </button>
@@ -561,7 +565,7 @@ const LoginPage = () => {
                       setShowSignup(false);
                       setError("");
                     }}
-                    className="font-medium text-orange-600 hover:text-orange-500"
+                    className="font-medium text-blue-600 hover:text-blue-700"
                   >
                     Already have an account? Login here
                   </button>

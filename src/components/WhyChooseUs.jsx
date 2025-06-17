@@ -18,7 +18,9 @@ const careWhyChooseUs = [
     position: { top: "-45%", left: "51%", transform: "translateX(-50%)" },
     active: true,
     slug: "exceptional-clinical-talent",
-    description: whyChooseUsData.find(item => item.slug === "exceptional-clinical-talent").description
+    description: whyChooseUsData.find(
+      (item) => item.slug === "exceptional-clinical-talent"
+    ).description,
   },
   {
     id: 2,
@@ -27,7 +29,9 @@ const careWhyChooseUs = [
     position: { bottom: "-10%", right: "-27%" },
     active: false,
     slug: "latest-high-end-technology",
-    description: whyChooseUsData.find(item => item.slug === "latest-high-end-technology").description
+    description: whyChooseUsData.find(
+      (item) => item.slug === "latest-high-end-technology"
+    ).description,
   },
   {
     id: 3,
@@ -36,7 +40,9 @@ const careWhyChooseUs = [
     position: { bottom: "-85%", left: "51%", transform: "translateX(-50%)" },
     active: false,
     slug: "caring-systems-and-processes",
-    description: whyChooseUsData.find(item => item.slug === "caring-systems-and-processes").description
+    description: whyChooseUsData.find(
+      (item) => item.slug === "caring-systems-and-processes"
+    ).description,
   },
   {
     id: 4,
@@ -45,13 +51,13 @@ const careWhyChooseUs = [
     position: { top: "29%", left: "2%" },
     active: false,
     slug: "trust-based-compassionate-care",
-    description: whyChooseUsData.find(item => item.slug === "trust-based-compassionate-care").description
+    description: whyChooseUsData.find(
+      (item) => item.slug === "trust-based-compassionate-care"
+    ).description,
   },
 ];
 
 const WhyChooseUs = () => {
- 
-
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
       {/* Background texture overlay */}
@@ -93,12 +99,12 @@ const WhyChooseUs = () => {
           {/* Interactive points around the circle - Desktop only */}
           <div className="absolute inset-0 pointer-events-none">
             {careWhyChooseUs.map((item) => (
-              <div 
-                key={item.id} 
-                className="absolute pointer-events-auto" 
+              <div
+                key={item.id}
+                className="absolute pointer-events-auto"
                 style={{
                   ...item.position,
-                  zIndex: 10
+                  zIndex: 10,
                 }}
               >
                 <div className="relative">
@@ -121,7 +127,7 @@ const WhyChooseUs = () => {
                     }}
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-orange-100 rounded-lg text-orange-600">
+                      <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
                         {item.icon}
                       </div>
                       <h3 className="font-semibold text-gray-800 text-sm leading-tight">
@@ -133,10 +139,10 @@ const WhyChooseUs = () => {
                     </p> */}
                     <Link
                       to={`/why-us/${item.slug}`}
-                      className="flex items-center gap-2 text-orange-600 font-medium text-sm hover:text-orange-700 transition-colors group"
+                      className="flex items-center gap-2 text-blue-600 font-medium text-sm hover:text-blue-700 transition-colors group"
                     >
                       <span>Know More</span>
-                      <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-600 transition-colors">
+                      <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center group-hover:bg-blue-700 transition-colors">
                         <ChevronRight className="w-3 h-3 text-white" />
                       </div>
                     </Link>
@@ -168,7 +174,7 @@ const WhyChooseUs = () => {
                 className="bg-white rounded-lg shadow-md p-6 border"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-orange-100 rounded-lg text-orange-600">
+                  <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
                     {item.icon}
                   </div>
                   <h3 className="font-semibold text-gray-800 text-sm">
@@ -178,10 +184,10 @@ const WhyChooseUs = () => {
                 <p className="text-gray-600 text-sm mb-4">{item.description}</p>
                 <Link
                   to={`/why-us/${item.slug}`}
-                  className="flex items-center gap-2 text-orange-600 font-medium text-sm hover:text-orange-700 transition-colors group"
+                  className="flex items-center gap-2 text-blue-600 font-medium text-sm hover:text-blue-700 transition-colors group"
                 >
                   <span>Know More</span>
-                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-600 transition-colors">
+                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center group-hover:bg-blue-700 transition-colors">
                     <ChevronRight className="w-3 h-3 text-white" />
                   </div>
                 </Link>

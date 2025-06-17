@@ -35,7 +35,7 @@ const Contact = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Map Section */}
       <div className="relative w-full h-[400px] sm:h-[500px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-red-500/10 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/10 to-transparent z-10"></div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.821886172217!2d73.85707627496105!3d18.446394482632765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eace9ec70b25%3A0xc5ef05bf96d842cb!2sSai%20Sneh%20Hospital!5e0!3m2!1sen!2sin!4v1750075126397!5m2!1sen!2sin"
           width="100%"
@@ -50,29 +50,28 @@ const Contact = () => {
 
       {/* Contact Info Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              icon: MapPin,
-              title: "Location",
-              content:
-                "Pune-Satara Road, opp. PMT Bus Depot, Katraj Pune, Maharashtra, India 411046",
-              link: "https://maps.app.goo.gl/gGrgY6S7D3mMiqFt8",
-              color: "from-red-500 to-orange-500",
-            },
-            {
               icon: Phone,
-              title: "Phone Number",
-              content: "08048060580",
-              link: "tel:08048060580",
-              color: "from-orange-500 to-amber-500",
+              title: "Phone",
+              content: "+1 (123) 456-7890",
+              link: "tel:+11234567890",
+              color: "from-blue-500 to-blue-600",
             },
             {
               icon: Mail,
-              title: "E-Mail Us",
+              title: "Email",
               content: "info@saisnehhospital.com",
               link: "mailto:info@saisnehhospital.com",
-              color: "from-amber-500 to-red-500",
+              color: "from-blue-400 to-blue-500",
+            },
+            {
+              icon: MapPin,
+              title: "Location",
+              content: "123 Hospital Street, Pune, India",
+              link: "https://maps.google.com",
+              color: "from-blue-500 to-blue-600",
             },
           ].map((item, index) => (
             <motion.div
@@ -92,7 +91,7 @@ const Contact = () => {
               </h3>
               <a
                 href={item.link}
-                className="text-gray-600 hover:text-red-500 transition-colors duration-300"
+                className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
               >
                 {item.content}
               </a>
@@ -124,7 +123,7 @@ const Contact = () => {
                 onClick={() => setContactMethod("email")}
                 className={`px-6 py-3 rounded-full flex items-center gap-2 transition-all duration-300 ${
                   contactMethod === "email"
-                    ? "bg-red-500 text-white"
+                    ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
@@ -157,7 +156,7 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                     placeholder="Your name"
                   />
                 </div>
@@ -172,7 +171,7 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                     placeholder="Your phone number"
                   />
                 </div>
@@ -189,7 +188,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                   placeholder="Your email address"
                 />
               </div>
@@ -205,7 +204,7 @@ const Contact = () => {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   rows="4"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
@@ -218,7 +217,7 @@ const Contact = () => {
                   className={`px-8 py-4 rounded-full font-semibold text-white flex items-center gap-2 mx-auto ${
                     contactMethod === "whatsapp"
                       ? "bg-green-500 hover:bg-green-600"
-                      : "bg-red-500 hover:bg-red-600"
+                      : "bg-blue-500 hover:bg-blue-600"
                   } transition-all duration-300 shadow-lg hover:shadow-xl`}
                 >
                   Send Message
@@ -230,12 +229,12 @@ const Contact = () => {
         </div>
 
         {/* Working Hours Strip */}
-        <div className="mb-20 bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 relative overflow-hidden">
+        <div className="mb-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-8 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div
               className="w-full h-full"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F04E30' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233B82F6' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                 backgroundSize: "30px 30px",
               }}
             ></div>
@@ -248,13 +247,13 @@ const Contact = () => {
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-red-500" />
+                  <Clock className="w-5 h-5 text-blue-600" />
                   <span className="text-gray-700">
                     Monday - Saturday: 9:00 AM - 9:00 PM
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-5 h-5 text-red-500" />
+                  <Calendar className="w-5 h-5 text-blue-600" />
                   <span className="text-gray-700">
                     Sunday: 10:00 AM - 6:00 PM
                   </span>
@@ -271,7 +270,7 @@ const Contact = () => {
               </p>
               <a
                 href="tel:08048060580"
-                className="inline-flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-600 transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300"
               >
                 <Phone className="w-5 h-5" />
                 Emergency Call

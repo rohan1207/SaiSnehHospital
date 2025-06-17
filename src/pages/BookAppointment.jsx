@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaUserMd, FaClock } from "react-icons/fa";
 import axios from "axios";
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from "../config";
 import Swal from "sweetalert2";
 
 export default function BookAppointment() {
@@ -131,26 +131,24 @@ export default function BookAppointment() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}/api/appointments`,
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          department: formData.department,
-          doctor: formData.doctor,
-          appointmentDate: formData.date,
-          appointmentTime: formData.time,
-          message: formData.message,
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/appointments`, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        department: formData.department,
+        doctor: formData.doctor,
+        appointmentDate: formData.date,
+        appointmentTime: formData.time,
+        message: formData.message,
+      });
 
       if (response.status === 201 || response.status === 200) {
         Swal.fire({
           icon: "success",
           title: "Success!",
           text: "Appointment booked successfully. Thank you!",
-          confirmButtonColor: "#f04e30",
+          // Update confirmation button color
+          confirmButtonColor: "#3b82f6",
         });
 
         // Reset form
@@ -172,13 +170,33 @@ export default function BookAppointment() {
         icon: "error",
         title: "Oops...",
         text: "Something went wrong! Please try again.",
-        confirmButtonColor: "#f04e30",
+        confirmButtonColor: "#2563eb",
       });
     }
   };
 
   const nextStep = () => {
-    setStep((prev) => Math.min(prev + 1, 3));
+    let isValid = false;
+    if (step === 1) {
+      if (formData.name && formData.email && formData.phone) {
+        isValid = true;
+      }
+    } else if (step === 2) {
+      if (formData.department && formData.doctor) {
+        isValid = true;
+      }
+    }
+
+    if (isValid) {
+      setStep((prev) => Math.min(prev + 1, 3));
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Incomplete Form",
+        text: "Please fill out all fields in the current step to continue.",
+        confirmButtonColor: "#3b82f6",
+      });
+    }
   };
 
   const prevStep = () => {
@@ -225,7 +243,7 @@ export default function BookAppointment() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
                   step >= item
-                    ? "bg-[#f04e30] text-white"
+                    ? "bg-blue-600 text-white"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >
@@ -234,7 +252,7 @@ export default function BookAppointment() {
               {item < 3 && (
                 <div
                   className={`w-12 h-1 mx-2 ${
-                    step > item ? "bg-[#f04e30]" : "bg-gray-200"
+                    step > item ? "bg-blue-600" : "bg-gray-200"
                   }`}
                 />
               )}
@@ -259,8 +277,9 @@ export default function BookAppointment() {
               exit={{ x: -20, opacity: 0 }}
               className="space-y-4"
             >
+              {" "}
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <FaUserMd className="text-[#f04e30]" />
+                <FaUserMd className="text-blue-600" />
                 Personal Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -269,12 +288,13 @@ export default function BookAppointment() {
                     Full Name
                   </label>
                   <input
+                    required
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent"
-                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    
                   />
                 </div>
                 <div>
@@ -286,7 +306,7 @@ export default function BookAppointment() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                     required
                   />
                 </div>
@@ -295,12 +315,12 @@ export default function BookAppointment() {
                     Phone Number
                   </label>
                   <input
+                    required
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent"
-                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -316,7 +336,7 @@ export default function BookAppointment() {
               className="space-y-4"
             >
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <FaUserMd className="text-[#f04e30]" />
+                <FaUserMd className="text-blue-600" />
                 Select Department & Doctor
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -326,11 +346,11 @@ export default function BookAppointment() {
                   </label>
                   <div className="relative">
                     <select
+                      required
                       name="department"
                       value={formData.department}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent appearance-none bg-white cursor-pointer"
-                      required
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent appearance-none bg-white cursor-pointer"
                       style={{
                         WebkitAppearance: "none",
                         MozAppearance: "none",
@@ -360,11 +380,11 @@ export default function BookAppointment() {
                   </label>
                   <div className="relative">
                     <select
+                      required
                       name="doctor"
                       value={formData.doctor}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent appearance-none bg-white disabled:bg-gray-100 disabled:text-gray-500 cursor-pointer"
-                      required
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent appearance-none bg-white disabled:bg-gray-100 disabled:text-gray-500 cursor-pointer"
                       disabled={!formData.department}
                       style={{
                         WebkitAppearance: "none",
@@ -436,7 +456,7 @@ export default function BookAppointment() {
               className="space-y-4"
             >
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <FaClock className="text-[#f04e30]" />
+                <FaClock className="text-blue-600" />
                 Select Date & Time
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -445,13 +465,13 @@ export default function BookAppointment() {
                     Preferred Date
                   </label>
                   <input
+                    required
                     type="date"
                     name="date"
                     value={formData.date}
                     onChange={handleInputChange}
                     min={new Date().toISOString().split("T")[0]}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent"
-                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -459,11 +479,11 @@ export default function BookAppointment() {
                     Preferred Time
                   </label>
                   <select
+                    required
                     name="time"
                     value={formData.time}
                     onChange={handleInputChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent"
-                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   >
                     <option value="">Select Time</option>
                     {timeSlots.map((slot) => (
@@ -475,15 +495,16 @@ export default function BookAppointment() {
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Additional Message (Optional)
+                    Additional Message
                   </label>
                   <textarea
+                    required
                     name="message"
+                    rows="4"
                     value={formData.message}
                     onChange={handleInputChange}
-                    rows="3"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f04e30] focus:border-transparent"
-                    placeholder="Any specific concerns or requirements..."
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Any additional information for the doctor..."
                   ></textarea>
                 </div>
               </div>
@@ -497,7 +518,7 @@ export default function BookAppointment() {
               whileTap={{ scale: 0.98 }}
               type="button"
               onClick={prevStep}
-              className={`px-6 py-2 rounded-lg text-[#f04e30] border border-[#f04e30] hover:bg-[#f04e30]/5 transition-colors ${
+              className={`px-6 py-2 rounded-lg text-blue-600 border border-blue-600 hover:bg-blue-50 transition-colors ${
                 step === 1 ? "invisible" : ""
               }`}
             >
@@ -508,7 +529,7 @@ export default function BookAppointment() {
               whileTap={{ scale: 0.98 }}
               type={step === 3 ? "submit" : "button"}
               onClick={step < 3 ? nextStep : undefined}
-              className="px-6 py-2 bg-[#f04e30] text-white rounded-lg hover:bg-[#f04e30]/90 transition-colors"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               {step === 3 ? "Book Appointment" : "Next"}
             </motion.button>
