@@ -169,35 +169,9 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {" "}
-      {/* Sticky Tab Bar - Desktop Only */}
-      <div className="hidden md:block sticky top-[65px] md:top-17 z-40 px-2 md:px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white shadow-md rounded-full mx-auto max-w-5xl">
-            <div className="flex space-x-8 overflow-x-auto no-scrollbar px-8 justify-center">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => {
-                    sectionRefs[tab.id].current?.scrollIntoView({
-                      behavior: "smooth",
-                    });
-                  }}
-                  className={`py-3 text-sm font-medium whitespace-nowrap transition-all ${
-                    activeTab === tab.id
-                      ? "text-blue-600"
-                      : "text-gray-600 hover:text-blue-600"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>{" "}
+     
       {/* Hero Section */}
-      <div className="relative pt-24 md:pt-16 pb-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="relative pt-24 md:pt-16 pb-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden pt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -224,7 +198,7 @@ const ServiceDetail = () => {
               </div>
             </div>
             {/* Right Image */}
-            <div className="relative mt-[17px]">
+            <div className="relative sm:mt-[35px] mt-[0px]   ">
               <div className="relative w-full pt-[100%] rounded-full">
                 <img
                   src={serviceData.heroImage}
@@ -461,102 +435,105 @@ const ServiceDetail = () => {
         </section>
 
         {/* Treatments Section */}
-        <section
-          ref={sectionRefs.treatments}
-          id="treatments"
-          className="scroll-mt-32"
-        >
-          <motion.div
-            variants={tabVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-12"
+         {/* Treatments Section */}
+          <section
+            ref={sectionRefs.treatments}
+            id="treatments"
+            className="scroll-mt-32"
           >
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">
-                Our Treatments
-              </h2>
-              <p className="text-lg text-gray-600">
-                Comprehensive treatment options tailored to your needs
-              </p>
-            </div>
-
-            <div className="relative max-w-4xl mx-auto">
-              <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                  <div className="relative h-80 lg:h-auto">
-                    <img
-                      src={serviceData.treatments[currentTreatmentIndex].image}
-                      alt={serviceData.treatments[currentTreatmentIndex].name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-                  </div>
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
-                    <motion.div
-                      key={currentTreatmentIndex}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                        {serviceData.treatments[currentTreatmentIndex].name}
-                      </h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {
-                          serviceData.treatments[currentTreatmentIndex]
-                            .description
+            <motion.div
+              variants={tabVariants}
+              initial="hidden"
+              animate="visible"
+              className="space-y-12"
+            >
+              <div className="text-center max-w-3xl mx-auto">
+                <h2 className="text-4xl font-bold text-gray-800 mb-6">
+                  Our Treatments
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Comprehensive treatment options tailored to your needs
+                </p>
+              </div>{" "}
+              <div className="relative max-w-4xl mx-auto">
+                <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                    <div className="relative h-[350px] lg:h-[500px]">
+                      <img
+                        src={
+                          serviceData.treatments[currentTreatmentIndex].image
                         }
-                      </p>
-                      <div className="space-y-2">
-                        {serviceData.treatments[
-                          currentTreatmentIndex
-                        ].benefits.map((benefit, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center text-sm text-gray-600"
-                          >
-                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                            {benefit}
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
+                        alt={serviceData.treatments[currentTreatmentIndex].name}
+                        className="w-full h-full object-fit"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+                    </div>
+                    <div className="h-[350px] lg:h-[500px] p-8 lg:p-12 flex flex-col overflow-y-auto no-scrollbar">
+                      <motion.div
+                        key={currentTreatmentIndex}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col h-full"
+                      >
+                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                          {serviceData.treatments[currentTreatmentIndex].name}
+                        </h3>
+                        <p className="text-gray-600 mb-6 leading-relaxed">
+                          {
+                            serviceData.treatments[currentTreatmentIndex]
+                              .description
+                          }
+                        </p>
+                        <div className="space-y-2 flex-grow">
+                          {serviceData.treatments[
+                            currentTreatmentIndex
+                          ].benefits.map((benefit, index) => (
+                            <div
+                              key={index}
+                              className="flex items-center text-sm text-gray-600"
+                            >
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                              {benefit}
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Navigation */}
-              <button
-                onClick={prevTreatment}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 group"
-              >
-                <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
-              </button>
-              <button
-                onClick={nextTreatment}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 group"
-              >
-                <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
-              </button>
+                {/* Navigation */}
+                <button
+                  onClick={prevTreatment}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 group"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
+                </button>
+                <button
+                  onClick={nextTreatment}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 group"
+                >
+                  <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
+                </button>
 
-              {/* Indicators */}
-              <div className="flex justify-center mt-8 space-x-2">
-                {serviceData.treatments.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTreatmentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentTreatmentIndex
-                        ? "bg-blue-600 scale-125"
-                        : "bg-gray-300 hover:bg-gray-400"
-                    }`}
-                  ></button>
-                ))}
+                {/* Indicators */}
+                <div className="flex justify-center mt-8 space-x-2">
+                  {serviceData.treatments.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTreatmentIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentTreatmentIndex
+                          ? "bg-blue-600 scale-125"
+                          : "bg-gray-300 hover:bg-gray-400"
+                      }`}
+                    ></button>
+                  ))}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </section>
+            </motion.div>
+          </section>
 
         {/* Technology Section - Updated for mobile carousel */}
         <section

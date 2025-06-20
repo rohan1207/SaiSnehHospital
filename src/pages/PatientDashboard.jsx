@@ -104,7 +104,6 @@ const PatientDashboard = () => {
           onClick={() => setSidebarOpen(false)}
         />
       )}
-
       {/* Sidebar */}
       <aside
         className={`
@@ -178,7 +177,8 @@ const PatientDashboard = () => {
             <span className="ml-3 font-medium">Logout</span>
           </button>
         </div>
-      </aside>      {/* Main Content */}
+      </aside>{" "}
+      {/* Main Content */}
       <main className="flex-1 flex flex-col h-screen">
         {/* Mobile Header */}
         <header className="lg:hidden bg-white shadow-sm p-4 flex items-center justify-between flex-shrink-0 relative z-10">
@@ -191,8 +191,8 @@ const PatientDashboard = () => {
           <h1 className="text-lg font-semibold text-gray-900">Dashboard</h1>
           <div className="w-10 h-10"></div> {/* Spacer for centering */}
         </header>
-
-        {/* Content Area */}        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-20">
+        {/* Content Area */}{" "}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-20">
           <DashboardContent activeTab={activeTab} userData={userData} />
         </div>
       </main>

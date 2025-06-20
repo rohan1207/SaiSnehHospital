@@ -55,7 +55,8 @@ const AdvantagesSlider = () => {
     setCurrentIndex((prev) => (prev === 0 ? advantages.length - 1 : prev - 1));
   };
 
-  return (    <div className="w-full max-w-6xl mx-auto px-4 py-8 sm:py-12 bg-gradient-to-br from-slate-50 to-blue-50">
+  return (
+    <div className="w-full max-w-6xl mx-auto px-4 py-8 sm:py-12 bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header Section */}
       <div className="text-center mb-16">
         <motion.h2

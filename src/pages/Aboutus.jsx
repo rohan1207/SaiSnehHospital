@@ -218,14 +218,15 @@ const AboutUs = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid lg:grid-cols-2 gap-12 items-center"
+              className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch h-full"
             >
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+              {" "}
+              <div className="flex flex-col h-full">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-8">
                   Your Health Is Our{" "}
                   <span className="text-blue-500">Top Priority</span>
                 </h2>
-                <div className="space-y-6 text-gray-600 leading-relaxed">
+                <div className="flex-grow space-y-6 text-gray-600 leading-relaxed">
                   <p className="text-lg">
                     SAI SNEH HOSPITAL – PUNE is an endeavor to alleviate the
                     suffering of patients, by providing the best of healthcare
@@ -233,61 +234,60 @@ const AboutUs = () => {
                     centrally located and adorned with state-of-the-art
                     infrastructure and an eminent panel of doctors.
                   </p>
-                  <p>
+                  <p className="text-lg">
                     We are a highly sophisticated setup with a panel of super
                     specialists functioning smoothly in a culture of care,
                     commitment, dedication, and concern. Our commitment to
                     excellence ensures that patients and attendants receive
                     exceptional care.
                   </p>
-                  <p>
+                  <p className="text-lg">
                     Located in the heart of Katraj, Pune, we are a 50-bedded
                     multi-specialty hospital that has been serving patients
                     since 1997. Our hospital is well-equipped with all required
                     equipment and machinery, including a state-of-the-art ICU
                     with round-the-clock intensivist care.
                   </p>
-                </div>
-
+                </div>{" "}
                 <div className="mt-8 grid sm:grid-cols-2 gap-4">
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-blue-50 rounded-xl p-4 border border-blue-100"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    className="bg-blue-50 rounded-xl p-6 border border-blue-100 flex flex-col items-center sm:items-start text-center sm:text-left"
                   >
-                    <MapPin className="w-6 h-6 text-blue-500 mb-2" />
-                    <h3 className="font-semibold text-gray-800 mb-1">
+                    <div className="bg-white/80 rounded-full p-3 mb-3">
+                      <MapPin className="w-6 h-6 text-blue-500" />
+                    </div>
+                    <h3 className="font-semibold text-gray-800 mb-2">
                       Location
                     </h3>
-                    <p className="text-sm text-gray-600">
-                      Heart of Katraj, Pune
-                    </p>
+                    <p className="text-gray-600">Heart of Katraj, Pune</p>
                   </motion.div>
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-blue-50/80 rounded-xl p-4 border border-blue-100"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    className="bg-blue-50/80 rounded-xl p-6 border border-blue-100 flex flex-col items-center sm:items-start text-center sm:text-left"
                   >
-                    <Award className="w-6 h-6 text-blue-500 mb-2" />
-                    <h3 className="font-semibold text-gray-800 mb-1">
+                    <div className="bg-white/80 rounded-full p-3 mb-3">
+                      <Award className="w-6 h-6 text-blue-500" />
+                    </div>
+                    <h3 className="font-semibold text-gray-800 mb-2">
                       Accreditation
                     </h3>
-                    <p className="text-sm text-gray-600">
-                      NABH Accredited Facility
-                    </p>
+                    <p className="text-gray-600">NABH Accredited Facility</p>
                   </motion.div>
                 </div>
               </div>
-
               <motion.div
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="relative"
+                className="h-full"
               >
-                {" "}
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white">
-                  <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm">
-                    <h3 className="text-2xl font-bold mb-4">Why Choose Us?</h3>
-                    <ul className="space-y-3">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white h-full flex flex-col">
+                  <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm flex-grow">
+                    <h3 className="text-2xl font-bold mb-6">Why Choose Us?</h3>
+                    <ul className="space-y-4">
                       {[
                         "Experienced team of specialist doctors",
                         "State-of-the-art medical equipment",
@@ -295,6 +295,9 @@ const AboutUs = () => {
                         "Cashless facility for all mediclaims",
                         "24/7 emergency and ambulance services",
                         "Comprehensive diagnostic services",
+                        "Patient-centric care with compassion",
+                        "Hygienic and comfortable environment",
+                        "Community-focused healthcare initiatives",
                       ].map((item, index) => (
                         <motion.li
                           key={index}

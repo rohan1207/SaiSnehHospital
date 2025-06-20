@@ -59,7 +59,7 @@ const careWhyChooseUs = [
 
 const WhyChooseUs = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4">
+    <div className=" bg-gray-50 py-10 md:py-12 px-4 sm:mb-[100px] mb-[0px] ">
       {/* Background texture overlay */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div
@@ -73,7 +73,7 @@ const WhyChooseUs = () => {
 
       <div className="max-w-6xl mx-auto relative">
         {/* Header */}
-        <div className="text-center mb-20 md:mb-40">
+        <div className="text-center mb-50 md:mb-54 lg:mb-[11rem]">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">
             Sai Sneh Model of Care
           </h1>
@@ -82,7 +82,7 @@ const WhyChooseUs = () => {
         {/* Desktop circular layout - hidden on mobile */}
         <div className="hidden md:block relative w-full max-w-4xl mx-auto overflow-visible">
           {/* Central circle with image */}
-          <div className="relative w-80 h-80 mx-auto mb-8">
+          <div className="relative w-80 h-80 mx-auto mb-4">
             {/* Main circle */}
             <div className="w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-white">
               <img

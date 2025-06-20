@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const stories = [
@@ -34,7 +34,7 @@ const stories = [
   },
   {
     title: "Sai Sneh Hospital Testimonial 7",
-    name:"Mrs. Priya Kumbthekar",
+    name: "Mrs. Priya Kumbthekar",
     videoUrl: "https://www.youtube.com/embed/yJmdMiVMFwY?si=pQRwiLyGm4ozkRnt", // reused
   },
 ];
@@ -42,6 +42,7 @@ const stories = [
 const PatientStories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeVideo, setActiveVideo] = useState(null);
 
   // Check for mobile view
   useEffect(() => {
@@ -97,7 +98,13 @@ const PatientStories = () => {
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={handleDragEnd}
             >
-              <StoryCard story={stories[currentIndex]} tall />
+              <StoryCard 
+                story={stories[currentIndex]} 
+                isActive={activeVideo === currentIndex}
+                onPlay={() => setActiveVideo(currentIndex)}
+                onPause={() => setActiveVideo(null)}
+                tall 
+              />
             </motion.div>
           </AnimatePresence>
 
@@ -117,57 +124,94 @@ const PatientStories = () => {
       </section>
     );
   }
-
-  // Desktop view remains unchanged
+  // Desktop view
   return (
-    <section className="py-10 px-4 bg-white text-center">
-      <h2 className="text-3xl font-bold mb-10 text-gray-800">
-        Patient Stories
-      </h2>
-      <div className="grid grid-cols-5 gap-4 max-w-7xl mx-auto">
-        <div className="col-span-1 row-span-2">
-          <StoryCard story={stories[0]} />
+    <section className="py-16 sm:py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+            Patient Stories
+          </h2>
+          <p className="text-gray-600">
+            Real experiences shared by our valued patients about their journey to better health
+          </p>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <StoryCard story={stories[1]} />
-          <StoryCard story={stories[5]} />
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-[250px]">
+          {/* Featured Story - Large */}
+          <div className="lg:col-span-2 lg:row-span-2">
+            <StoryCard
+              story={stories[0]}
+              isActive={activeVideo === 0}
+              onPlay={() => setActiveVideo(0)}
+              onPause={() => setActiveVideo(null)}
+              featured
+            />
+          </div>
 
-        <div className="row-span-2">
-          <StoryCard story={stories[2]} tall />
-        </div>
+          {/* Regular Stories - Right Column */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8">
+            {stories.slice(1, 4).map((story, index) => (
+              <div key={index + 1}>
+                <StoryCard
+                  story={story}
+                  isActive={activeVideo === index + 1}
+                  onPlay={() => setActiveVideo(index + 1)}
+                  onPause={() => setActiveVideo(null)}
+                />
+              </div>
+            ))}
+          </div>
 
-        <div className="flex flex-col gap-4">
-          <StoryCard story={stories[3]} />
-          <StoryCard story={stories[6]} />
-        </div>
-
-        <div className="col-span-1 row-span-2">
-          <StoryCard story={stories[4]} />
+          {/* Bottom Row Stories */}
+          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {stories.slice(4).map((story, index) => (
+              <div key={index + 4}>
+                <StoryCard
+                  story={story}
+                  isActive={activeVideo === index + 4}
+                  onPlay={() => setActiveVideo(index + 4)}
+                  onPause={() => setActiveVideo(null)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const StoryCard = ({ story, tall }) => {
+const StoryCard = ({ story, isActive, onPlay, onPause }) => {
+  const iframeRef = useRef(null);
+
+  useEffect(() => {
+    if (iframeRef.current) {
+      const message = isActive ? "play" : "pause";
+      iframeRef.current.contentWindow.postMessage(
+        `{"event":"command","func":"${message}Video","args":""}`,
+        "*"
+      );
+    }
+  }, [isActive]);
+
   return (
-    <div
-      className={`relative rounded-2xl overflow-hidden w-full h-full group ${
-        tall ? "h-[450px] md:h-[450px]" : "h-[220px]"
-      }`}
-    >
+    <div className="group relative w-full h-full rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-white">
       <iframe
-        src={story.videoUrl}
+        ref={iframeRef}
+        src={`${story.videoUrl}?enablejsapi=1&rel=0&modestbranding=1`}
         title={story.title}
         className="w-full h-full object-cover"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
+        onPlay={() => onPlay()}
+        onPause={() => onPause()}
       ></iframe>
-      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-40 p-4 text-white text-left">
-        <p className="font-semibold text-sm leading-tight">{story.title}</p>
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+        <p className="font-semibold text-sm leading-tight mb-1">
+          {story.title}
+        </p>
         <p className="text-xs opacity-90">{story.name}</p>
       </div>
     </div>

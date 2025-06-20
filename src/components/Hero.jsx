@@ -12,7 +12,8 @@ const Hero = () => {
     window.location.href = "tel:8008280020";
   };
 
-  return (    <div className="relative pt-20 lg:pt-40 pb-24 lg:pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+  return (
+    <div className="relative pt-20 lg:pt-40 pb-24 lg:pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
           {/* Left Column - Text Content */}
@@ -32,7 +33,6 @@ const Hero = () => {
                 you receive the best medical care possible.
               </p>
             </div>
-
             {/* Buttons */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 transition-all duration-300">
               <Link
@@ -55,7 +55,8 @@ const Hero = () => {
                 <HiOutlinePhone className="h-5 w-5 sm:h-6 sm:w-6" />
                 Emergency Call
               </a>
-            </div>            {/* Stats */}
+            </div>{" "}
+            {/* Stats */}
             <div className="grid grid-cols-3 gap-2 sm:gap-6 pt-4 sm:pt-6 lg:pt-8 transition-all duration-300">
               <div className="text-center p-2 sm:p-4 bg-white/50 rounded-lg backdrop-blur-sm">
                 <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-blue-600">
@@ -83,11 +84,10 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Column - Image */}
+          {/* Right Column - Image */}{" "}
           <div className="relative order-1 lg:order-2 transition-all duration-500 ease-out">
-            <div className="relative z-10 mx-auto max-w-[280px] sm:max-w-none">
-              <div className="aspect-square lg:aspect-auto overflow-hidden rounded-2xl bg-white p-2">
+            <div className="relative z-10 mx-auto max-w-[280px] lg:max-w-[520px] sm:max-w-none">
+              <div className="aspect-square lg:aspect-[5.4/5] overflow-hidden rounded-2xl bg-white p-2">
                 <img
                   src="/owner.jpeg"
                   alt="Doctor and Patient"

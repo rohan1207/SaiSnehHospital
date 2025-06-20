@@ -1,5 +1,16 @@
 export const doctors = [
   {
+    id: "dr-sunil-jagtap",
+    name: "Dr. Sunil Jagtap",
+    image: "/sunil_jagtap.jpeg",
+    experience: "37 years of experience",
+    specialties: ["Homeopathy", "General Medicine"],
+    description:
+      "Dr. Sunil Jagtap is the owner of Sai Sneh Hospital & Diagnostic Centre Pvt Ltd. He practices as a Homeopathy doctor in the Hospital with over three decades of experience in providing comprehensive healthcare.",
+    role: "Owner & Senior Consultant",
+    info:"Dr. Sunil Jagtap is the owner of Sai Sneh Hospital & Diagnostic Centre Pvt Ltd. He practices as a Homeopathy doctor in the Hospital with over three decades of experience in providing comprehensive healthcare."
+  },
+  {
     id: "dr-sumeet-jagtap",
     name: "Dr. Sumeet Jagtap",
     image: "/sumeet_jagtap.jpeg",
@@ -20,16 +31,6 @@ export const doctors = [
       "Dr. Pallavi Jagtap is a reliable and one of the best Gynecologist in Katraj Pune. She completed her MBBS from Smt Kashibai Navale Medical College and post-graduation in obstetrics and gynecology from Krishna Institute of Medical Sciences, Karad. She specializes in high-risk pregnancy and laparoscopic surgeries.",
     role: "Gynecologist & Obstetrician",
     info: "Dr. Pallavi Jagtap is a reliable and one of the best Gynecologists in Katraj, Pune. She completed her MBBS from Smt. Kashibai Navale Medical College and pursued post-graduation in Obstetrics and Gynecology from Krishna Institute of Medical Sciences, Karad. She holds a Diploma in Advanced Laparoscopic Surgeries from Inspiria Institute, Rahata, Shirdi, and a Fellowship in IVF and Reproductive Medicine from UKSH, Germany. She has a special interest in high-risk pregnancy and laparoscopic surgeries. Currently, she is working at Sai Sneh Hospital as a Consultant Obstetrician and Gynecologist, with over 6 years of experience.\n\nCONSULTANT OBSTETRICIAN ● ANTENATAL CARE ● PREGNANCY CHECK-UPS ● SONOGRAPHY ● INFERTILITY TREATMENT ● LAPAROSCOPIC UTERINE SURGERY ● SAFE ABORTION ● CANCER AWARENESS & SCREENING ● HIGH-RISK PREGNANCY ● GYNECOLOGICAL & BREAST CANCER SCREENING ● SAFE AND PAINLESS DELIVERY ● OBSTETRICS USG",
-  },
-  {
-    id: "dr-sunil-jagtap",
-    name: "Dr. Sunil Jagtap",
-    image: "/sunil_jagtap.jpeg",
-    experience: "37 years of experience",
-    specialties: ["Homeopathy", "General Medicine"],
-    description:
-      "Dr. Sunil Jagtap is the owner of Sai Sneh Hospital & Diagnostic Centre Pvt Ltd. He practices as a Homeopathy doctor in the Hospital with over three decades of experience in providing comprehensive healthcare.",
-    role: "Owner & Senior Consultant",
-    info:"Dr. Sunil Jagtap is the owner of Sai Sneh Hospital & Diagnostic Centre Pvt Ltd. He practices as a Homeopathy doctor in the Hospital with over three decades of experience in providing comprehensive healthcare."
-  },
+  }
+  
 ];

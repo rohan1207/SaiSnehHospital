@@ -912,7 +912,7 @@ const DoctorsPage = () => {
                 placeholder="Search by doctor name or specialty..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#f04e30] focus:border-transparent transition-all duration-300"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
               />
             </div>
           </div>
@@ -937,20 +937,20 @@ const DoctorsPage = () => {
                         alt={doctor.name}
                         className="w-full h-full object-cover rounded-full"
                       />
-                      <div className="absolute inset-0 rounded-full border-2 border-[#f04e30] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      <div className="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1 text-center">
                       {doctor.name}
                     </h3>
-                    <p className="text-[#f04e30] text-sm font-medium mb-2 text-center">
+                    <p className="text-blue-500 text-sm font-medium mb-2 text-center">
                       {doctor.specialty}
                     </p>
                     <div className="flex items-center justify-center gap-2 text-sm text-gray-600 mb-3">
-                      <FaCalendar className="text-[#f04e30] w-4 h-4" />
+                      <FaCalendar className="text-blue-500 w-4 h-4" />
                       <span>{doctor.schedule}</span>
                     </div>
                     <Link to="/book-appointment" className="block">
-                      <button className="w-full bg-gray-100 hover:bg-[#f04e30] hover:text-white text-gray-700 py-2 rounded-lg text-sm font-medium transition-all duration-300">
+                      <button className="w-full bg-gray-100 hover:bg-blue-500 hover:text-white text-gray-700 py-2 rounded-lg text-sm font-medium transition-all duration-300">
                         Schedule Consultation
                       </button>
                     </Link>
@@ -965,7 +965,7 @@ const DoctorsPage = () => {
               <button
                 onClick={handleShowMore}
                 disabled={isLoadingMore}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#f04e30] border-2 border-[#f04e30] rounded-xl hover:bg-[#f04e30] hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-500 border-2 border-blue-500 rounded-xl hover:bg-blue-500 hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoadingMore ? (
                   <>
