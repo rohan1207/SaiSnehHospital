@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import {
   HiOutlineCalendar,
@@ -8,10 +9,31 @@ import {
 } from "react-icons/hi";
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const handleEmergencyCall = () => {
     window.location.href = "tel:8008280020";
   };
 
+  const hospitalImages = [
+    "/hospital1.jpg",
+    "/hospital2.png",
+    "/bed.avif",
+    "/operation1.avif",
+    "/operation2.avif",
+    "/operation6.jpg",
+    "/operation7.jpg",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === hospitalImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="relative pt-20 lg:pt-40 pb-24 lg:pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,15 +106,43 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          {/* Right Column - Image */}{" "}
+          {/* Right Column - Image Slider */}
           <div className="relative order-1 lg:order-2 transition-all duration-500 ease-out">
             <div className="relative z-10 mx-auto max-w-[280px] lg:max-w-[520px] sm:max-w-none">
               <div className="aspect-square lg:aspect-[5.4/5] overflow-hidden rounded-2xl bg-white p-2">
-                <img
-                  src="/owner.jpeg"
-                  alt="Doctor and Patient"
-                  className="w-full h-full object-cover object-center rounded-xl shadow-lg"
-                />
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                  <div 
+                    className="absolute top-0 left-0 w-full h-full flex transition-transform duration-700 ease-in-out"
+                    style={{
+                      transform: `translateX(-${currentImageIndex * 100}%)`,
+                    }}
+                  >
+                    {hospitalImages.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={`Hospital view ${index + 1}`}
+                        className="w-full h-full object-cover flex-shrink-0"
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Image indicators */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    {hospitalImages.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          currentImageIndex === index 
+                            ? 'bg-blue-600 w-4' 
+                            : 'bg-white/70 hover:bg-white'
+                        }`}
+                        onClick={() => setCurrentImageIndex(index)}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
               {/* Floating Card */}
               <div className="absolute -bottom-4 left-0 right-0 mx-auto w-max bg-white p-3 rounded-xl shadow-lg transition-all duration-300">
