@@ -101,6 +101,18 @@ const galleryData = {
       title: "24/7 nurse Available",
       category: "Facility",
     },
+    {
+      id: 16,
+      image: "/hospital1.jpg",
+      title: "Hospital Exterior",
+      category: "Equipment",
+    },
+    {
+      id: 17,
+      image: "/hospital2.png",
+      title: "Hospital Exterior",
+      category: "Infrastructure",
+    }
   ],
   operations: [
     {

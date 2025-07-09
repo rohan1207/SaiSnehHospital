@@ -136,14 +136,14 @@ const Navbar = () => {
             isOpen ? "block" : "hidden"
           }`}
         >
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col h-[100dvh]">
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between px-6 py-4">
+            <div className="flex items-center justify-between px-6 py-3">
               <Link to="/">
                 <img
                   src="/logo.png"
                   alt="Hospital Logo"
-                  className="h-10 w-auto"
+                  className="h-8 w-auto"
                 />
               </Link>
               <motion.button
@@ -156,13 +156,13 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Items */}
-            <div className="flex-1 overflow-y-auto px-4 py-8">
-              <div className="space-y-2">
+            <div className="flex-1 overflow-y-auto px-4 py-4">
+              <div className="space-y-1">
                 {menuItems.map((item) => (
                   <motion.div key={item.title} whileHover={{ x: 5 }}>
                     <Link
                       to={item.link}
-                      className="block px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-full font-medium transition-all duration-200"
+                      className="block px-6 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-full font-medium transition-all duration-200"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.title}
@@ -172,13 +172,13 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Menu Footer */}
-            <div className="px-6 py-8 space-y-3">
+            {/* Mobile Menu Footer - Fixed at bottom */}
+            <div className="px-6 py-4 space-y-2 border-t border-gray-100 bg-white/80 backdrop-blur-sm">
               <Link to="/doctors">
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="w-full bg-blue-50 text-blue-600 px-6 py-3 rounded-full font-medium transition-all duration-200 text-center mb-5 hover:bg-blue-100"
+                  className="w-full bg-blue-50 text-blue-600 px-6 py-2.5 rounded-full font-medium transition-all duration-200 text-center hover:bg-blue-100"
                 >
                   Find a Doctor
                 </motion.div>
@@ -187,7 +187,7 @@ const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-600 text-center transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-2.5 rounded-full font-medium shadow-md hover:shadow-lg hover:from-blue-700 hover:to-blue-600 text-center transition-all duration-200"
                 >
                   Login
                 </motion.div>
